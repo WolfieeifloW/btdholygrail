@@ -5,21 +5,1807 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>BTDiablo Holy Grail Tracker</title>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <link rel="stylesheet" href="btdhg.css">
 </head>
 <body>
-    <div class="grail-tabs">
-        <div class="tab statistics-tab tab-active">Statistics</div>
-        <div class="tab weapons-tab color-unique">Weapons</div>
-        <div class="tab armor-tab color-unique">Armor</div>
-        <div class="tab other-tab color-unique">Other</div>
-        <div class="tab sets-tab color-set">Sets</div>
-        <div class="tab runes-tab color-rune">Runes</div>
-        <div class="search">
-            <input placeholder="Search" spellcheck="false" value>
+    <div class="container">
+        <div class="header" id="btd-header">
+            <div class="grail-tabs">
+                <div id="statistics-tab" class="tab statistics-tab tab-active" onclick="f('statistics')">Statistics</div>
+                <div id="weapons-tab" class="tab weapons-tab color-unique" onclick="f('weapons')">Weapons</div>
+                <div id="armor-tab" class="tab armor-tab color-unique" onclick="f('armor')">Armor</div>
+                <div id="other-tab" class="tab other-tab color-unique" onclick="f('other')">Other</div>
+                <div id="sets-tab" class="tab sets-tab color-set" onclick="f('sets')">Sets</div>
+                <div id="runes-tab" class="tab runes-tab color-rune" onclick="f('runes')">Runes</div>
+                <div class="search">
+                    <input placeholder="Search" spellcheck="false" value>
+                </div>
+            </div>
+        </div>
+
+        <div id="statistics">
+            <div class="total-table">
+                <table class="tg">
+                    <thead>
+                        <tr>
+                            <th class="tg-0lax" colspan="5">Overall</th>
+                        </tr>
+                        <tr>
+                            <th class="tg-0lax"></th>
+                            <th class="tg-0lax">Total</th>
+                            <th class="tg-0lax">Found</th>
+                            <th class="tg-0lax">Missing</th>
+                            <th class="tg-0lax">Progress</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="tg-0lax">Weapons</td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                        </tr>
+                        <tr>
+                            <td class="tg-0lax">Armor</td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                        </tr>
+                        <tr>
+                            <td class="tg-0lax">Other</td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                        </tr>
+                        <tr>
+                            <td class="tg-0lax">Sets</td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                        </tr>
+                        <tr>
+                            <td class="tg-0lax">Runes</td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                        </tr>
+                        <tr>
+                            <td class="tg-0lax">Total</td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="ethereal-table">
+                <table class="tg">
+                    <thead>
+                        <tr>
+                            <th class="tg-0lax" colspan="5">Ethereal</th>
+                        </tr>
+                        <tr>
+                            <th class="tg-0lax"></th>
+                            <th class="tg-0lax">Total</th>
+                            <th class="tg-0lax">Found</th>
+                            <th class="tg-0lax">Missing</th>
+                            <th class="tg-0lax">Progress</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="tg-0lax">Weapons</td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                        </tr>
+                        <tr>
+                            <td class="tg-0lax">Armor</td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                        </tr>
+                        <tr>
+                            <td class="tg-0lax">Total</td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="perfect-table">
+                <table class="tg">
+                    <thead>
+                        <tr>
+                            <th class="tg-0lax" colspan="5">Perfect</th>
+                        </tr>
+                        <tr>
+                            <th class="tg-0lax"></th>
+                            <th class="tg-0lax">Total</th>
+                            <th class="tg-0lax">Found</th>
+                            <th class="tg-0lax">Missing</th>
+                            <th class="tg-0lax">Progress</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="tg-0lax">Weapons</td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                        </tr>
+                        <tr>
+                            <td class="tg-0lax">Armor</td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                        </tr>
+                        <tr>
+                            <td class="tg-0lax">Other</td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                        </tr>
+                        <tr>
+                            <td class="tg-0lax">Sets</td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                        </tr>
+                        <tr>
+                            <td class="tg-0lax">Total</td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="tabs-page" id="weapons">
+            <table class="tg">
+                <thead>
+                    <tr>
+                        <th class="tg-0pky">Item Name</th>
+                        <th class="tg-0pky">Item Type</th>
+                        <th class="tg-0pky">Acquired</th>
+                        <th class="color-ethereal tg-0pky">Ethereal</th>
+                        <th class="tg-0pky">Perfect ★</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="color-unique tg-0pky">The Gnasher</td>
+                        <td class="tg-0pky">Hand Axe</td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-gnasher-a" id="the-gnasher-a" onclick="update('the-gnasher-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-gnasher-e" id="the-gnasher-e" onclick="update('the-gnasher-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-gnasher-p" id="the-gnasher-p" onclick="update('the-gnasher-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Deathspade</td>
+                        <td class="tg-0pky">Axe</td>
+                        <td class="tg-0pky"><input type="checkbox" name="deathspade-a" id="deathspade-a" onclick="update('deathspade-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="deathspade-e" id="deathspade-e" onclick="update('deathspade-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="deathspade-p" id="deathspade-p" onclick="update('deathspade-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Bladebone</td>
+                        <td class="tg-0pky">Double Axe</td>
+                        <td class="tg-0pky"><input type="checkbox" name="bladebone-a" id="bladebone-a" onclick="update('bladebone-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="bladebone-e" id="bladebone-e" onclick="update('bladebone-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="bladebone-p" id="bladebone-p" onclick="update('bladebone-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Mindrend</td>
+                        <td class="tg-0pky">Military Pick</td>
+                        <td class="tg-0pky"><input type="checkbox" name="mindrend-a" id="mindrend-a" onclick="update('mindrend-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="mindrend-e" id="mindrend-e" onclick="update('mindrend-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="mindrend-p" id="mindrend-p" onclick="update('mindrend-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Rakescar</td>
+                        <td class="tg-0pky">War Axe</td>
+                        <td class="tg-0pky"><input type="checkbox" name="rakescar-a" id="rakescar-a" onclick="update('rakescar-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="rakescar-e" id="rakescar-e" onclick="update('rakescar-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="rakescar-p" id="rakescar-p" onclick="update('rakescar-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Fechmars Axe</td>
+                        <td class="tg-0pky">Large Axe</td>
+                        <td class="tg-0pky"><input type="checkbox" name="fechmars-axe-a" id="fechmars-axe-a" onclick="update('fechmars-axe-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="fechmars-axe-e" id="fechmars-axe-e" onclick="update('fechmars-axe-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="fechmars-axe-p" id="fechmars-axe-p" onclick="update('fechmars-axe-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Goreshovel</td>
+                        <td class="tg-0pky">Broad Axe</td>
+                        <td class="tg-0pky"><input type="checkbox" name="goreshovel-a" id="goreshovel-a" onclick="update('goreshovel-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="goreshovel-e" id="goreshovel-e" onclick="update('goreshovel-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="goreshovel-p" id="goreshovel-p" onclick="update('goreshovel-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">The Chieftan</td>
+                        <td class="tg-0pky">Battle Axe</td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-chieftan-a" id="the-chieftan-a" onclick="update('the-chieftan-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-chieftan-e" id="the-chieftan-e" onclick="update('the-chieftan-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-chieftan-p" id="the-chieftan-p" onclick="update('the-chieftan-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Brainhew</td>
+                        <td class="tg-0pky">Great Axe</td>
+                        <td class="tg-0pky"><input type="checkbox" name="brainhew-a" id="brainhew-a" onclick="update('brainhew-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="brainhew-e" id="brainhew-e" onclick="update('brainhew-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="brainhew-p" id="brainhew-p" onclick="update('brainhew-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">The Humongous</td>
+                        <td class="tg-0pky">Giant Axe</td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-humongous-a" id="the-humongous-a" onclick="update('the-humongous-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-humongous-e" id="the-humongous-e" onclick="update('the-humongous-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-humongous-p" id="the-humongous-p" onclick="update('the-humongous-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Iros Torch</td>
+                        <td class="tg-0pky">Wand</td>
+                        <td class="tg-0pky"><input type="checkbox" name="iros-torch-a" id="iros-torch-a" onclick="update('iros-torch-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="iros-torch-e" id="iros-torch-e" onclick="update('iros-torch-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="iros-torch-p" id="iros-torch-p" onclick="update('iros-torch-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Maelstromwrath</td>
+                        <td class="tg-0pky">Yew Wand</td>
+                        <td class="tg-0pky"><input type="checkbox" name="maelstromwrath-a" id="maelstromwrath-a" onclick="update('maelstromwrath-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="maelstromwrath-e" id="maelstromwrath-e" onclick="update('maelstromwrath-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="maelstromwrath-p" id="maelstromwrath-p" onclick="update('maelstromwrath-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Gravenspine</td>
+                        <td class="tg-0pky">Bone Wand</td>
+                        <td class="tg-0pky"><input type="checkbox" name="gravenspine-a" id="gravenspine-a" onclick="update('gravenspine-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="gravenspine-e" id="gravenspine-e" onclick="update('gravenspine-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="gravenspine-p" id="gravenspine-p" onclick="update('gravenspine-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Umes Lament</td>
+                        <td class="tg-0pky">Grim Wand</td>
+                        <td class="tg-0pky"><input type="checkbox" name="umes-lament-a" id="umes-lament-a" onclick="update('umes-lament-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="umes-lament-e" id="umes-lament-e" onclick="update('umes-lament-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="umes-lament-p" id="umes-lament-p" onclick="update('umes-lament-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Felloak</td>
+                        <td class="tg-0pky">Club</td>
+                        <td class="tg-0pky"><input type="checkbox" name="felloak-a" id="felloak-a" onclick="update('felloak-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="felloak-e" id="felloak-e" onclick="update('felloak-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="felloak-p" id="felloak-p" onclick="update('felloak-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Knell Striker</td>
+                        <td class="tg-0pky">Scepter</td>
+                        <td class="tg-0pky"><input type="checkbox" name="knell-striker-a" id="knell-striker-a" onclick="update('knell-striker-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="knell-striker-e" id="knell-striker-e" onclick="update('knell-striker-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="knell-striker-p" id="knell-striker-p" onclick="update('knell-striker-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Rusthandle</td>
+                        <td class="tg-0pky">Grand Scepter</td>
+                        <td class="tg-0pky"><input type="checkbox" name="rusthandle-a" id="rusthandle-a" onclick="update('rusthandle-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="rusthandle-e" id="rusthandle-e" onclick="update('rusthandle-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="rusthandle-p" id="rusthandle-p" onclick="update('rusthandle-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Stormeye</td>
+                        <td class="tg-0pky">War Scepter</td>
+                        <td class="tg-0pky"><input type="checkbox" name="stormeye-a" id="stormeye-a" onclick="update('stormeye-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="stormeye-e" id="stormeye-e" onclick="update('stormeye-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="stormeye-p" id="stormeye-p" onclick="update('stormeye-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Stoutnail</td>
+                        <td class="tg-0pky">Spiked Club</td>
+                        <td class="tg-0pky"><input type="checkbox" name="stoutnail-a" id="stoutnail-a" onclick="update('stoutnail-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="stoutnail-e" id="stoutnail-e" onclick="update('stoutnail-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="stoutnail-p" id="stoutnail-p" onclick="update('stoutnail-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Crushflange</td>
+                        <td class="tg-0pky">Mace</td>
+                        <td class="tg-0pky"><input type="checkbox" name="crushflange-a" id="crushflange-a" onclick="update('crushflange-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="crushflange-e" id="crushflange-e" onclick="update('crushflange-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="crushflange-p" id="crushflange-p" onclick="update('crushflange-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Bloodrise</td>
+                        <td class="tg-0pky">Morning Star</td>
+                        <td class="tg-0pky"><input type="checkbox" name="bloodrise-a" id="bloodrise-a" onclick="update('bloodrise-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="bloodrise-e" id="bloodrise-e" onclick="update('bloodrise-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="bloodrise-p" id="bloodrise-p" onclick="update('bloodrise-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">The Generals Tan Do Li Ga</td>
+                        <td class="tg-0pky">Flail</td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-generals-tan-do-li-ga-a" id="the-generals-tan-do-li-ga-a" onclick="update('the-generals-tan-do-li-ga-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-generals-tan-do-li-ga-e" id="the-generals-tan-do-li-ga-e" onclick="update('the-generals-tan-do-li-ga-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-generals-tan-do-li-ga-p" id="the-generals-tan-do-li-ga-p" onclick="update('the-generals-tan-do-li-ga-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Ironstone</td>
+                        <td class="tg-0pky">War Hammer</td>
+                        <td class="tg-0pky"><input type="checkbox" name="ironstone-a" id="ironstone-a" onclick="update('ironstone-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="ironstone-e" id="ironstone-e" onclick="update('ironstone-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="ironstone-p" id="ironstone-p" onclick="update('ironstone-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Bonesob</td>
+                        <td class="tg-0pky">Maul</td>
+                        <td class="tg-0pky"><input type="checkbox" name="bonesob-a" id="bonesob-a" onclick="update('bonesob-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="bonesob-e" id="bonesob-e" onclick="update('bonesob-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="bonesob-p" id="bonesob-p" onclick="update('bonesob-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Steeldriver</td>
+                        <td class="tg-0pky">Great Maul</td>
+                        <td class="tg-0pky"><input type="checkbox" name="steeldriver-a" id="steeldriver-a" onclick="update('steeldriver-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="steeldriver-e" id="steeldriver-e" onclick="update('steeldriver-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="steeldriver-p" id="steeldriver-p" onclick="update('steeldriver-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Rixots Keen</td>
+                        <td class="tg-0pky">Short Sword</td>
+                        <td class="tg-0pky"><input type="checkbox" name="rixots-keen-a" id="rixots-keen-a" onclick="update('rixots-keen-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="rixots-keen-e" id="rixots-keen-e" onclick="update('rixots-keen-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="rixots-keen-p" id="rixots-keen-p" onclick="update('rixots-keen-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Blood Crescent</td>
+                        <td class="tg-0pky">Scimitar</td>
+                        <td class="tg-0pky"><input type="checkbox" name="blood-crescent-a" id="blood-crescent-a" onclick="update('blood-crescent-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="blood-crescent-e" id="blood-crescent-e" onclick="update('blood-crescent-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="blood-crescent-p" id="blood-crescent-p" onclick="update('blood-crescent-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Krintizs Skewer</td>
+                        <td class="tg-0pky">Saber</td>
+                        <td class="tg-0pky"><input type="checkbox" name="krintizs-skewer-a" id="krintizs-skewer-a" onclick="update('krintizs-skewer-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="krintizs-skewer-e" id="krintizs-skewer-e" onclick="update('krintizs-skewer-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="krintizs-skewer-p" id="krintizs-skewer-p" onclick="update('krintizs-skewer-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Gleamscythe</td>
+                        <td class="tg-0pky">Falchion</td>
+                        <td class="tg-0pky"><input type="checkbox" name="gleamscythe-a" id="gleamscythe-a" onclick="update('gleamscythe-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="gleamscythe-e" id="gleamscythe-e" onclick="update('gleamscythe-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="gleamscythe-p" id="gleamscythe-p" onclick="update('gleamscythe-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Griswolds Edge</td>
+                        <td class="tg-0pky">Broad Sword</td>
+                        <td class="tg-0pky"><input type="checkbox" name="griswolds-edge-a" id="griswolds-edge-a" onclick="update('griswolds-edge-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="griswolds-edge-e" id="griswolds-edge-e" onclick="update('griswolds-edge-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="griswolds-edge-p" id="griswolds-edge-p" onclick="update('griswolds-edge-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Hellplague</td>
+                        <td class="tg-0pky">Long Sword</td>
+                        <td class="tg-0pky"><input type="checkbox" name="hellplague-a" id="hellplague-a" onclick="update('hellplague-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="hellplague-e" id="hellplague-e" onclick="update('hellplague-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="hellplague-p" id="hellplague-p" onclick="update('hellplague-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Culwens Point</td>
+                        <td class="tg-0pky">War Sword</td>
+                        <td class="tg-0pky"><input type="checkbox" name="culwens-point-a" id="culwens-point-a" onclick="update('culwens-point-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="culwens-point-e" id="culwens-point-e" onclick="update('culwens-point-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="culwens-point-p" id="culwens-point-p" onclick="update('culwens-point-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Shadowfang</td>
+                        <td class="tg-0pky">2-handed Sword</td>
+                        <td class="tg-0pky"><input type="checkbox" name="shadowfang-a" id="shadowfang-a" onclick="update('shadowfang-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="shadowfang-e" id="shadowfang-e" onclick="update('shadowfang-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="shadowfang-p" id="shadowfang-p" onclick="update('shadowfang-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Soulflay</td>
+                        <td class="tg-0pky">Claymore</td>
+                        <td class="tg-0pky"><input type="checkbox" name="soulflay-a" id="soulflay-a" onclick="update('soulflay-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="soulflay-e" id="soulflay-e" onclick="update('soulflay-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="soulflay-p" id="soulflay-p" onclick="update('soulflay-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Kinemils Awl</td>
+                        <td class="tg-0pky">Giant Sword</td>
+                        <td class="tg-0pky"><input type="checkbox" name="kinemils-awl-a" id="kinemils-awl-a" onclick="update('kinemils-awl-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="kinemils-awl-e" id="kinemils-awl-e" onclick="update('kinemils-awl-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="kinemils-awl-p" id="kinemils-awl-p" onclick="update('kinemils-awl-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Blacktongue</td>
+                        <td class="tg-0pky">Bastard Sword</td>
+                        <td class="tg-0pky"><input type="checkbox" name="blacktongue-a" id="blacktongue-a" onclick="update('blacktongue-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="blacktongue-e" id="blacktongue-e" onclick="update('blacktongue-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="blacktongue-p" id="blacktongue-p" onclick="update('blacktongue-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Ripsaw</td>
+                        <td class="tg-0pky">Flamberge</td>
+                        <td class="tg-0pky"><input type="checkbox" name="ripsaw-a" id="ripsaw-a" onclick="update('ripsaw-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="ripsaw-e" id="ripsaw-e" onclick="update('ripsaw-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="ripsaw-p" id="ripsaw-p" onclick="update('ripsaw-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">The Patriarch</td>
+                        <td class="tg-0pky">Great Sword</td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-patriarch-a" id="the-patriarch-a" onclick="update('the-patriarch-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-patriarch-e" id="the-patriarch-e" onclick="update('the-patriarch-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-patriarch-p" id="the-patriarch-p" onclick="update('the-patriarch-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Gull</td>
+                        <td class="tg-0pky">Dagger</td>
+                        <td class="tg-0pky"><input type="checkbox" name="gull-a" id="gull-a" onclick="update('gull-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="gull-e" id="gull-e" onclick="update('gull-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="gull-p" id="gull-p" onclick="update('gull-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">The Diggler</td>
+                        <td class="tg-0pky">Dirk</td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-diggler-a" id="the-diggler-a" onclick="update('the-diggler-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-diggler-e" id="the-diggler-e" onclick="update('the-diggler-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-diggler-p" id="the-diggler-p" onclick="update('the-diggler-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">The Jade Tan Do</td>
+                        <td class="tg-0pky">Kris</td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-jade-tan-do-a" id="the-jade-tan-do-a" onclick="update('the-jade-tan-do-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-jade-tan-do-e" id="the-jade-tan-do-e" onclick="update('the-jade-tan-do-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-jade-tan-do-p" id="the-jade-tan-do-p" onclick="update('the-jade-tan-do-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Irices Shard</td>
+                        <td class="tg-0pky">Blade</td>
+                        <td class="tg-0pky"><input type="checkbox" name="irices-shard-a" id="irices-shard-a" onclick="update('irices-shard-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="irices-shard-e" id="irices-shard-e" onclick="update('irices-shard-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="irices-shard-p" id="irices-shard-p" onclick="update('irices-shard-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">The Dragon Chang</td>
+                        <td class="tg-0pky">Spear</td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-dragon-chang-a" id="the-dragon-chang-a" onclick="update('the-dragon-chang-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-dragon-chang-e" id="the-dragon-chang-e" onclick="update('the-dragon-chang-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-dragon-chang-p" id="the-dragon-chang-p" onclick="update('the-dragon-chang-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Razortine</td>
+                        <td class="tg-0pky">Trident</td>
+                        <td class="tg-0pky"><input type="checkbox" name="razortine-a" id="razortine-a" onclick="update('razortine-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="razortine-e" id="razortine-e" onclick="update('razortine-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="razortine-p" id="razortine-p" onclick="update('razortine-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Bloodthief</td>
+                        <td class="tg-0pky">Brandistock</td>
+                        <td class="tg-0pky"><input type="checkbox" name="bloodthief-a" id="bloodthief-a" onclick="update('bloodthief-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="bloodthief-e" id="bloodthief-e" onclick="update('bloodthief-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="bloodthief-p" id="bloodthief-p" onclick="update('bloodthief-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Lance of Yaggai</td>
+                        <td class="tg-0pky">Spetum</td>
+                        <td class="tg-0pky"><input type="checkbox" name="lance-of-yaggai-a" id="lance-of-yaggai-a" onclick="update('lance-of-yaggai-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="lance-of-yaggai-e" id="lance-of-yaggai-e" onclick="update('lance-of-yaggai-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="lance-of-yaggai-p" id="lance-of-yaggai-p" onclick="update('lance-of-yaggai-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">The Tannr Gorerod</td>
+                        <td class="tg-0pky">Pike</td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-tannr-gorerod-a" id="the-tannr-gorerod-a" onclick="update('the-tannr-gorerod-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-tannr-gorerod-e" id="the-tannr-gorerod-e" onclick="update('the-tannr-gorerod-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-tannr-gorerod-p" id="the-tannr-gorerod-p" onclick="update('the-tannr-gorerod-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Dimoaks Hew</td>
+                        <td class="tg-0pky">Bardiche</td>
+                        <td class="tg-0pky"><input type="checkbox" name="dimoaks-hew-a" id="dimoaks-hew-a" onclick="update('dimoaks-hew-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="dimoaks-hew-e" id="dimoaks-hew-e" onclick="update('dimoaks-hew-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="dimoaks-hew-p" id="dimoaks-hew-p" onclick="update('dimoaks-hew-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Steelgoad</td>
+                        <td class="tg-0pky">Voulge</td>
+                        <td class="tg-0pky"><input type="checkbox" name="steelgoad-a" id="steelgoad-a" onclick="update('steelgoad-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="steelgoad-e" id="steelgoad-e" onclick="update('steelgoad-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="steelgoad-p" id="steelgoad-p" onclick="update('steelgoad-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Soul Harvest</td>
+                        <td class="tg-0pky">Scythe</td>
+                        <td class="tg-0pky"><input type="checkbox" name="soul-harvest-a" id="soul-harvest-a" onclick="update('soul-harvest-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="soul-harvest-e" id="soul-harvest-e" onclick="update('soul-harvest-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="soul-harvest-p" id="soul-harvest-p" onclick="update('soul-harvest-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">The Battlebranch</td>
+                        <td class="tg-0pky">Poleaxe</td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-battlebranch-a" id="the-battlebranch-a" onclick="update('the-battlebranch-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-battlebranch-e" id="the-battlebranch-e" onclick="update('the-battlebranch-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-battlebranch-p" id="the-battlebranch-p" onclick="update('the-battlebranch-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Woestave</td>
+                        <td class="tg-0pky">Halberd</td>
+                        <td class="tg-0pky"><input type="checkbox" name="woestave-a" id="woestave-a" onclick="update('woestave-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="woestave-e" id="woestave-e" onclick="update('woestave-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="woestave-p" id="woestave-p" onclick="update('woestave-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">The Grim Reaper</td>
+                        <td class="tg-0pky">War Scythe</td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-grim-reaper-a" id="the-grim-reaper-a" onclick="update('the-grim-reaper-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-grim-reaper-e" id="the-grim-reaper-e" onclick="update('the-grim-reaper-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-grim-reaper-p" id="the-grim-reaper-p" onclick="update('the-grim-reaper-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Bane Ash</td>
+                        <td class="tg-0pky">Short Staff</td>
+                        <td class="tg-0pky"><input type="checkbox" name="bane-ash-a" id="bane-ash-a" onclick="update('bane-ash-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="bane-ash-e" id="bane-ash-e" onclick="update('bane-ash-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="bane-ash-p" id="bane-ash-p" onclick="update('bane-ash-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Serpent Lord</td>
+                        <td class="tg-0pky">Long Staff</td>
+                        <td class="tg-0pky"><input type="checkbox" name="serpent-lord-a" id="serpent-lord-a" onclick="update('serpent-lord-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="serpent-lord-e" id="serpent-lord-e" onclick="update('serpent-lord-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="serpent-lord-p" id="serpent-lord-p" onclick="update('serpent-lord-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Lazarus Spire</td>
+                        <td class="tg-0pky">Gnarled Staff</td>
+                        <td class="tg-0pky"><input type="checkbox" name="lazarus-spire-a" id="lazarus-spire-a" onclick="update('lazarus-spire-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="lazarus-spire-e" id="lazarus-spire-e" onclick="update('lazarus-spire-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="lazarus-spire-p" id="lazarus-spire-p" onclick="update('lazarus-spire-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">The Salamander</td>
+                        <td class="tg-0pky">Battle Staff</td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-salamander-a" id="the-salamander-a" onclick="update('the-salamander-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-salamander-e" id="the-salamander-e" onclick="update('the-salamander-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-salamander-p" id="the-salamander-p" onclick="update('the-salamander-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">The Iron Jang Bong</td>
+                        <td class="tg-0pky">War Staff</td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-iron-jang-bong-a" id="the-iron-jang-bong-a" onclick="update('the-iron-jang-bong-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-iron-jang-bong-e" id="the-iron-jang-bong-e" onclick="update('the-iron-jang-bong-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-iron-jang-bong-p" id="the-iron-jang-bong-p" onclick="update('the-iron-jang-bong-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Pluckeye</td>
+                        <td class="tg-0pky">Short Bow</td>
+                        <td class="tg-0pky"><input type="checkbox" name="pluckeye-a" id="pluckeye-a" onclick="update('pluckeye-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="pluckeye-e" id="pluckeye-e" onclick="update('pluckeye-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="pluckeye-p" id="pluckeye-p" onclick="update('pluckeye-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Witherstring</td>
+                        <td class="tg-0pky">Hunters Bow</td>
+                        <td class="tg-0pky"><input type="checkbox" name="witherstring-a" id="witherstring-a" onclick="update('witherstring-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="witherstring-e" id="witherstring-e" onclick="update('witherstring-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="witherstring-p" id="witherstring-p" onclick="update('witherstring-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Rimeraven</td>
+                        <td class="tg-0pky">Long Bow</td>
+                        <td class="tg-0pky"><input type="checkbox" name="rimeraven-a" id="rimeraven-a" onclick="update('rimeraven-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="rimeraven-e" id="rimeraven-e" onclick="update('rimeraven-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="rimeraven-p" id="rimeraven-p" onclick="update('rimeraven-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Piercerib</td>
+                        <td class="tg-0pky">Composite Bow</td>
+                        <td class="tg-0pky"><input type="checkbox" name="piercerib-a" id="piercerib-a" onclick="update('piercerib-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="piercerib-e" id="piercerib-e" onclick="update('piercerib-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="piercerib-p" id="piercerib-p" onclick="update('piercerib-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Stormstrike</td>
+                        <td class="tg-0pky">Short Battle Bow</td>
+                        <td class="tg-0pky"><input type="checkbox" name="stormstrike-a" id="stormstrike-a" onclick="update('stormstrike-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="stormstrike-e" id="stormstrike-e" onclick="update('stormstrike-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="stormstrike-p" id="stormstrike-p" onclick="update('stormstrike-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Wizendraw</td>
+                        <td class="tg-0pky">Long Battle Bow</td>
+                        <td class="tg-0pky"><input type="checkbox" name="wizendraw-a" id="wizendraw-a" onclick="update('wizendraw-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="wizendraw-e" id="wizendraw-e" onclick="update('wizendraw-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="wizendraw-p" id="wizendraw-p" onclick="update('wizendraw-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Hellclap</td>
+                        <td class="tg-0pky">Short War Bow</td>
+                        <td class="tg-0pky"><input type="checkbox" name="hellclap-a" id="hellclap-a" onclick="update('hellclap-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="hellclap-e" id="hellclap-e" onclick="update('hellclap-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="hellclap-p" id="hellclap-p" onclick="update('hellclap-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Blastbark</td>
+                        <td class="tg-0pky">Long War Bow</td>
+                        <td class="tg-0pky"><input type="checkbox" name="blastbark-a" id="blastbark-a" onclick="update('blastbark-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="blastbark-e" id="blastbark-e" onclick="update('blastbark-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="blastbark-p" id="blastbark-p" onclick="update('blastbark-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Leadcrow</td>
+                        <td class="tg-0pky">Light Crossbow</td>
+                        <td class="tg-0pky"><input type="checkbox" name="leadcrow-a" id="leadcrow-a" onclick="update('leadcrow-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="leadcrow-e" id="leadcrow-e" onclick="update('leadcrow-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="leadcrow-p" id="leadcrow-p" onclick="update('leadcrow-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Ichorsting</td>
+                        <td class="tg-0pky">Crossbow</td>
+                        <td class="tg-0pky"><input type="checkbox" name="ichorsting-a" id="ichorsting-a" onclick="update('ichorsting-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="ichorsting-e" id="ichorsting-e" onclick="update('ichorsting-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="ichorsting-p" id="ichorsting-p" onclick="update('ichorsting-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Hellcast</td>
+                        <td class="tg-0pky">Heavy Crossbow</td>
+                        <td class="tg-0pky"><input type="checkbox" name="hellcast-a" id="hellcast-a" onclick="update('hellcast-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="hellcast-e" id="hellcast-e" onclick="update('hellcast-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="hellcast-p" id="hellcast-p" onclick="update('hellcast-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Doomslinger</td>
+                        <td class="tg-0pky">Repeating Crossbow</td>
+                        <td class="tg-0pky"><input type="checkbox" name="doomslinger-a" id="doomslinger-a" onclick="update('doomslinger-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="doomslinger-e" id="doomslinger-e" onclick="update('doomslinger-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="doomslinger-p" id="doomslinger-p" onclick="update('doomslinger-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Staff of Kings</td>
+                        <td class="tg-0pky">Staff</td>
+                        <td class="tg-0pky"><input type="checkbox" name="staff-of-kings-a" id="staff-of-kings-a" onclick="update('staff-of-kings-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="staff-of-kings-e" id="staff-of-kings-e" onclick="update('staff-of-kings-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="staff-of-kings-p" id="staff-of-kings-p" onclick="update('staff-of-kings-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Horadric Staff</td>
+                        <td class="tg-0pky">Staff</td>
+                        <td class="tg-0pky"><input type="checkbox" name="horadric-staff-a" id="horadric-staff-a" onclick="update('horadric-staff-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="horadric-staff-e" id="horadric-staff-e" onclick="update('horadric-staff-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="horadric-staff-p" id="horadric-staff-p" onclick="update('horadric-staff-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Hell Forge Hammer</td>
+                        <td class="tg-0pky">Hammer</td>
+                        <td class="tg-0pky"><input type="checkbox" name="hell-forge-hammer-a" id="hell-forge-hammer-a" onclick="update('hell-forge-hammer-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="hell-forge-hammer-e" id="hell-forge-hammer-e" onclick="update('hell-forge-hammer-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="hell-forge-hammer-p" id="hell-forge-hammer-p" onclick="update('hell-forge-hammer-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">KhalimFlail</td>
+                        <td class="tg-0pky">Flail</td>
+                        <td class="tg-0pky"><input type="checkbox" name="khalimflail-a" id="khalimflail-a" onclick="update('khalimflail-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="khalimflail-e" id="khalimflail-e" onclick="update('khalimflail-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="khalimflail-p" id="khalimflail-p" onclick="update('khalimflail-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">SuperKhalimFlail</td>
+                        <td class="tg-0pky">Flail</td>
+                        <td class="tg-0pky"><input type="checkbox" name="superkhalimflail-a" id="superkhalimflail-a" onclick="update('superkhalimflail-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="superkhalimflail-e" id="superkhalimflail-e" onclick="update('superkhalimflail-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="superkhalimflail-p" id="superkhalimflail-p" onclick="update('superkhalimflail-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Coldkill</td>
+                        <td class="tg-0pky">Hatchet</td>
+                        <td class="tg-0pky"><input type="checkbox" name="coldkill-a" id="coldkill-a" onclick="update('coldkill-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="coldkill-e" id="coldkill-e" onclick="update('coldkill-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="coldkill-p" id="coldkill-p" onclick="update('coldkill-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Butcher's Pupil</td>
+                        <td class="tg-0pky">Cleaver</td>
+                        <td class="tg-0pky"><input type="checkbox" name="butchers-pupil-a" id="butchers-pupil-a" onclick="update('butchers-pupil-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="butchers-pupil-e" id="butchers-pupil-e" onclick="update('butchers-pupil-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="butchers-pupil-p" id="butchers-pupil-p" onclick="update('butchers-pupil-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Islestrike</td>
+                        <td class="tg-0pky">Twin Axe</td>
+                        <td class="tg-0pky"><input type="checkbox" name="islestrike-a" id="islestrike-a" onclick="update('islestrike-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="islestrike-e" id="islestrike-e" onclick="update('islestrike-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="islestrike-p" id="islestrike-p" onclick="update('islestrike-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Pompe's Wrath</td>
+                        <td class="tg-0pky">Crowbill</td>
+                        <td class="tg-0pky"><input type="checkbox" name="pompes-wrath-a" id="pompes-wrath-a" onclick="update('pompes-wrath-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="pompes-wrath-e" id="pompes-wrath-e" onclick="update('pompes-wrath-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="pompes-wrath-p" id="pompes-wrath-p" onclick="update('pompes-wrath-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Guardian Naga</td>
+                        <td class="tg-0pky">Naga</td>
+                        <td class="tg-0pky"><input type="checkbox" name="guardian-naga-a" id="guardian-naga-a" onclick="update('guardian-naga-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="guardian-naga-e" id="guardian-naga-e" onclick="update('guardian-naga-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="guardian-naga-p" id="guardian-naga-p" onclick="update('guardian-naga-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Warlord's Trust</td>
+                        <td class="tg-0pky">Military Axe</td>
+                        <td class="tg-0pky"><input type="checkbox" name="warlords-trust-a" id="warlords-trust-a" onclick="update('warlords-trust-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="warlords-trust-e" id="warlords-trust-e" onclick="update('warlords-trust-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="warlords-trust-p" id="warlords-trust-p" onclick="update('warlords-trust-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Spellsteel</td>
+                        <td class="tg-0pky">Bearded Axe</td>
+                        <td class="tg-0pky"><input type="checkbox" name="spellsteel-a" id="spellsteel-a" onclick="update('spellsteel-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="spellsteel-e" id="spellsteel-e" onclick="update('spellsteel-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="spellsteel-p" id="spellsteel-p" onclick="update('spellsteel-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Stormrider</td>
+                        <td class="tg-0pky">Tabar</td>
+                        <td class="tg-0pky"><input type="checkbox" name="stormrider-a" id="stormrider-a" onclick="update('stormrider-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="stormrider-e" id="stormrider-e" onclick="update('stormrider-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="stormrider-p" id="stormrider-p" onclick="update('stormrider-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Boneslayer Blade</td>
+                        <td class="tg-0pky">Gothic Axe</td>
+                        <td class="tg-0pky"><input type="checkbox" name="boneslayer-blade-a" id="boneslayer-blade-a" onclick="update('boneslayer-blade-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="boneslayer-blade-e" id="boneslayer-blade-e" onclick="update('boneslayer-blade-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="boneslayer-blade-p" id="boneslayer-blade-p" onclick="update('boneslayer-blade-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">The Minataur</td>
+                        <td class="tg-0pky">Ancient Axe</td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-minataur-a" id="the-minataur-a" onclick="update('the-minataur-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-minataur-e" id="the-minataur-e" onclick="update('the-minataur-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-minataur-p" id="the-minataur-p" onclick="update('the-minataur-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Suicide Branch</td>
+                        <td class="tg-0pky">Burnt Wand</td>
+                        <td class="tg-0pky"><input type="checkbox" name="suicide-branch-a" id="suicide-branch-a" onclick="update('suicide-branch-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="suicide-branch-e" id="suicide-branch-e" onclick="update('suicide-branch-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="suicide-branch-p" id="suicide-branch-p" onclick="update('suicide-branch-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Carin Shard</td>
+                        <td class="tg-0pky">Petrified Wand</td>
+                        <td class="tg-0pky"><input type="checkbox" name="carin-shard-a" id="carin-shard-a" onclick="update('carin-shard-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="carin-shard-e" id="carin-shard-e" onclick="update('carin-shard-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="carin-shard-p" id="carin-shard-p" onclick="update('carin-shard-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Arm of King Leoric</td>
+                        <td class="tg-0pky">Tomb Wand</td>
+                        <td class="tg-0pky"><input type="checkbox" name="arm-of-king-leoric-a" id="arm-of-king-leoric-a" onclick="update('arm-of-king-leoric-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="arm-of-king-leoric-e" id="arm-of-king-leoric-e" onclick="update('arm-of-king-leoric-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="arm-of-king-leoric-p" id="arm-of-king-leoric-p" onclick="update('arm-of-king-leoric-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Blackhand Key</td>
+                        <td class="tg-0pky">Grave Wand</td>
+                        <td class="tg-0pky"><input type="checkbox" name="blackhand-key-a" id="blackhand-key-a" onclick="update('blackhand-key-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="blackhand-key-e" id="blackhand-key-e" onclick="update('blackhand-key-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="blackhand-key-p" id="blackhand-key-p" onclick="update('blackhand-key-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Dark Clan Crusher</td>
+                        <td class="tg-0pky">Cudgel</td>
+                        <td class="tg-0pky"><input type="checkbox" name="dark-clan-crusher-a" id="dark-clan-crusher-a" onclick="update('dark-clan-crusher-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="dark-clan-crusher-e" id="dark-clan-crusher-e" onclick="update('dark-clan-crusher-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="dark-clan-crusher-p" id="dark-clan-crusher-p" onclick="update('dark-clan-crusher-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Zakarum's Hand</td>
+                        <td class="tg-0pky">Rune Scepter</td>
+                        <td class="tg-0pky"><input type="checkbox" name="zakarums-hand-a" id="zakarums-hand-a" onclick="update('zakarums-hand-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="zakarums-hand-e" id="zakarums-hand-e" onclick="update('zakarums-hand-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="zakarums-hand-p" id="zakarums-hand-p" onclick="update('zakarums-hand-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">The Fetid Sprinkler</td>
+                        <td class="tg-0pky">Holy Water Sprinkler</td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-fetid-sprinkler-a" id="the-fetid-sprinkler-a" onclick="update('the-fetid-sprinkler-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-fetid-sprinkler-e" id="the-fetid-sprinkler-e" onclick="update('the-fetid-sprinkler-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-fetid-sprinkler-p" id="the-fetid-sprinkler-p" onclick="update('the-fetid-sprinkler-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Hand of Blessed Light</td>
+                        <td class="tg-0pky">Divine Scepter</td>
+                        <td class="tg-0pky"><input type="checkbox" name="hand-of-blessed-light-a" id="hand-of-blessed-light-a" onclick="update('hand-of-blessed-light-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="hand-of-blessed-light-e" id="hand-of-blessed-light-e" onclick="update('hand-of-blessed-light-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="hand-of-blessed-light-p" id="hand-of-blessed-light-p" onclick="update('hand-of-blessed-light-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Fleshrender</td>
+                        <td class="tg-0pky">Barbed Club</td>
+                        <td class="tg-0pky"><input type="checkbox" name="fleshrender-a" id="fleshrender-a" onclick="update('fleshrender-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="fleshrender-e" id="fleshrender-e" onclick="update('fleshrender-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="fleshrender-p" id="fleshrender-p" onclick="update('fleshrender-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Sureshrill Frost</td>
+                        <td class="tg-0pky">Flanged Mace</td>
+                        <td class="tg-0pky"><input type="checkbox" name="sureshrill-frost-a" id="sureshrill-frost-a" onclick="update('sureshrill-frost-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="sureshrill-frost-e" id="sureshrill-frost-e" onclick="update('sureshrill-frost-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="sureshrill-frost-p" id="sureshrill-frost-p" onclick="update('sureshrill-frost-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Moonfall</td>
+                        <td class="tg-0pky">Jagged Star</td>
+                        <td class="tg-0pky"><input type="checkbox" name="moonfall-a" id="moonfall-a" onclick="update('moonfall-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="moonfall-e" id="moonfall-e" onclick="update('moonfall-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="moonfall-p" id="moonfall-p" onclick="update('moonfall-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Baezil's Vortex</td>
+                        <td class="tg-0pky">Knout</td>
+                        <td class="tg-0pky"><input type="checkbox" name="baezils-vortex-a" id="baezils-vortex-a" onclick="update('baezils-vortex-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="baezils-vortex-e" id="baezils-vortex-e" onclick="update('baezils-vortex-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="baezils-vortex-p" id="baezils-vortex-p" onclick="update('baezils-vortex-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Earthshaker</td>
+                        <td class="tg-0pky">Battle Hammer</td>
+                        <td class="tg-0pky"><input type="checkbox" name="earthshaker-a" id="earthshaker-a" onclick="update('earthshaker-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="earthshaker-e" id="earthshaker-e" onclick="update('earthshaker-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="earthshaker-p" id="earthshaker-p" onclick="update('earthshaker-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Bloodtree Stump</td>
+                        <td class="tg-0pky">War Club</td>
+                        <td class="tg-0pky"><input type="checkbox" name="bloodtree-stump-a" id="bloodtree-stump-a" onclick="update('bloodtree-stump-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="bloodtree-stump-e" id="bloodtree-stump-e" onclick="update('bloodtree-stump-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="bloodtree-stump-p" id="bloodtree-stump-p" onclick="update('bloodtree-stump-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">The Gavel of Pain</td>
+                        <td class="tg-0pky">Martel De Fer</td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-gavel-of-pain-a" id="the-gavel-of-pain-a" onclick="update('the-gavel-of-pain-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-gavel-of-pain-e" id="the-gavel-of-pain-e" onclick="update('the-gavel-of-pain-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-gavel-of-pain-p" id="the-gavel-of-pain-p" onclick="update('the-gavel-of-pain-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Bloodletter</td>
+                        <td class="tg-0pky">Gladius</td>
+                        <td class="tg-0pky"><input type="checkbox" name="bloodletter-a" id="bloodletter-a" onclick="update('bloodletter-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="bloodletter-e" id="bloodletter-e" onclick="update('bloodletter-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="bloodletter-p" id="bloodletter-p" onclick="update('bloodletter-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Coldsteel Eye</td>
+                        <td class="tg-0pky">Cutlass</td>
+                        <td class="tg-0pky"><input type="checkbox" name="coldsteel-eye-a" id="coldsteel-eye-a" onclick="update('coldsteel-eye-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="coldsteel-eye-e" id="coldsteel-eye-e" onclick="update('coldsteel-eye-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="coldsteel-eye-p" id="coldsteel-eye-p" onclick="update('coldsteel-eye-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Hexfire</td>
+                        <td class="tg-0pky">Shamshir</td>
+                        <td class="tg-0pky"><input type="checkbox" name="hexfire-a" id="hexfire-a" onclick="update('hexfire-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="hexfire-e" id="hexfire-e" onclick="update('hexfire-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="hexfire-p" id="hexfire-p" onclick="update('hexfire-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Blade of Ali Baba</td>
+                        <td class="tg-0pky">Tulwar</td>
+                        <td class="tg-0pky"><input type="checkbox" name="blade-of-ali-baba-a" id="blade-of-ali-baba-a" onclick="update('blade-of-ali-baba-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="blade-of-ali-baba-e" id="blade-of-ali-baba-e" onclick="update('blade-of-ali-baba-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="blade-of-ali-baba-p" id="blade-of-ali-baba-p" onclick="update('blade-of-ali-baba-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Ginther's Rift</td>
+                        <td class="tg-0pky">Dimensional Blade</td>
+                        <td class="tg-0pky"><input type="checkbox" name="ginthers-rift-a" id="ginthers-rift-a" onclick="update('ginthers-rift-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="ginthers-rift-e" id="ginthers-rift-e" onclick="update('ginthers-rift-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="ginthers-rift-p" id="ginthers-rift-p" onclick="update('ginthers-rift-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Headstriker</td>
+                        <td class="tg-0pky">Battle Sword</td>
+                        <td class="tg-0pky"><input type="checkbox" name="headstriker-a" id="headstriker-a" onclick="update('headstriker-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="headstriker-e" id="headstriker-e" onclick="update('headstriker-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="headstriker-p" id="headstriker-p" onclick="update('headstriker-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Plague Bearer</td>
+                        <td class="tg-0pky">Rune Sword</td>
+                        <td class="tg-0pky"><input type="checkbox" name="plague-bearer-a" id="plague-bearer-a" onclick="update('plague-bearer-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="plague-bearer-e" id="plague-bearer-e" onclick="update('plague-bearer-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="plague-bearer-p" id="plague-bearer-p" onclick="update('plague-bearer-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">The Atlantian</td>
+                        <td class="tg-0pky">Ancient Sword</td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-atlantian-a" id="the-atlantian-a" onclick="update('the-atlantian-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-atlantian-e" id="the-atlantian-e" onclick="update('the-atlantian-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-atlantian-p" id="the-atlantian-p" onclick="update('the-atlantian-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Crainte Vomir</td>
+                        <td class="tg-0pky">Espadon</td>
+                        <td class="tg-0pky"><input type="checkbox" name="crainte-vomir-a" id="crainte-vomir-a" onclick="update('crainte-vomir-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="crainte-vomir-e" id="crainte-vomir-e" onclick="update('crainte-vomir-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="crainte-vomir-p" id="crainte-vomir-p" onclick="update('crainte-vomir-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Bing Sz Wang</td>
+                        <td class="tg-0pky">Dacian Falx</td>
+                        <td class="tg-0pky"><input type="checkbox" name="bing-sz-wang-a" id="bing-sz-wang-a" onclick="update('bing-sz-wang-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="bing-sz-wang-e" id="bing-sz-wang-e" onclick="update('bing-sz-wang-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="bing-sz-wang-p" id="bing-sz-wang-p" onclick="update('bing-sz-wang-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">The Vile Husk</td>
+                        <td class="tg-0pky">Tusk Sword</td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-vile-husk-a" id="the-vile-husk-a" onclick="update('the-vile-husk-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-vile-husk-e" id="the-vile-husk-e" onclick="update('the-vile-husk-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-vile-husk-p" id="the-vile-husk-p" onclick="update('the-vile-husk-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Cloudcrack</td>
+                        <td class="tg-0pky">Gothic Sword</td>
+                        <td class="tg-0pky"><input type="checkbox" name="cloudcrack-a" id="cloudcrack-a" onclick="update('cloudcrack-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="cloudcrack-e" id="cloudcrack-e" onclick="update('cloudcrack-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="cloudcrack-p" id="cloudcrack-p" onclick="update('cloudcrack-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Todesfaelle Flamme</td>
+                        <td class="tg-0pky">Zweihander</td>
+                        <td class="tg-0pky"><input type="checkbox" name="todesfaelle-flamme-a" id="todesfaelle-flamme-a" onclick="update('todesfaelle-flamme-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="todesfaelle-flamme-e" id="todesfaelle-flamme-e" onclick="update('todesfaelle-flamme-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="todesfaelle-flamme-p" id="todesfaelle-flamme-p" onclick="update('todesfaelle-flamme-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Swordguard</td>
+                        <td class="tg-0pky">Executioner Sword</td>
+                        <td class="tg-0pky"><input type="checkbox" name="swordguard-a" id="swordguard-a" onclick="update('swordguard-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="swordguard-e" id="swordguard-e" onclick="update('swordguard-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="swordguard-p" id="swordguard-p" onclick="update('swordguard-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Spineripper</td>
+                        <td class="tg-0pky">Poignard</td>
+                        <td class="tg-0pky"><input type="checkbox" name="spineripper-a" id="spineripper-a" onclick="update('spineripper-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="spineripper-e" id="spineripper-e" onclick="update('spineripper-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="spineripper-p" id="spineripper-p" onclick="update('spineripper-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Heart Carver</td>
+                        <td class="tg-0pky">Rondel</td>
+                        <td class="tg-0pky"><input type="checkbox" name="heart-carver-a" id="heart-carver-a" onclick="update('heart-carver-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="heart-carver-e" id="heart-carver-e" onclick="update('heart-carver-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="heart-carver-p" id="heart-carver-p" onclick="update('heart-carver-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Blackbog's Sharp</td>
+                        <td class="tg-0pky">Cinquedeas</td>
+                        <td class="tg-0pky"><input type="checkbox" name="blackbogs-sharp-a" id="blackbogs-sharp-a" onclick="update('blackbogs-sharp-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="blackbogs-sharp-e" id="blackbogs-sharp-e" onclick="update('blackbogs-sharp-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="blackbogs-sharp-p" id="blackbogs-sharp-p" onclick="update('blackbogs-sharp-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Stormspike</td>
+                        <td class="tg-0pky">Stilleto</td>
+                        <td class="tg-0pky"><input type="checkbox" name="stormspike-a" id="stormspike-a" onclick="update('stormspike-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="stormspike-e" id="stormspike-e" onclick="update('stormspike-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="stormspike-p" id="stormspike-p" onclick="update('stormspike-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">The Impaler</td>
+                        <td class="tg-0pky">War Spear</td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-impaler-a" id="the-impaler-a" onclick="update('the-impaler-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-impaler-e" id="the-impaler-e" onclick="update('the-impaler-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-impaler-p" id="the-impaler-p" onclick="update('the-impaler-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Kelpie Snare</td>
+                        <td class="tg-0pky">Fuscina</td>
+                        <td class="tg-0pky"><input type="checkbox" name="kelpie-snare-a" id="kelpie-snare-a" onclick="update('kelpie-snare-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="kelpie-snare-e" id="kelpie-snare-e" onclick="update('kelpie-snare-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="kelpie-snare-p" id="kelpie-snare-p" onclick="update('kelpie-snare-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Soulfeast Tine</td>
+                        <td class="tg-0pky">War Fork</td>
+                        <td class="tg-0pky"><input type="checkbox" name="soulfeast-tine-a" id="soulfeast-tine-a" onclick="update('soulfeast-tine-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="soulfeast-tine-e" id="soulfeast-tine-e" onclick="update('soulfeast-tine-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="soulfeast-tine-p" id="soulfeast-tine-p" onclick="update('soulfeast-tine-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Hone Sundan</td>
+                        <td class="tg-0pky">Yari</td>
+                        <td class="tg-0pky"><input type="checkbox" name="hone-sundan-a" id="hone-sundan-a" onclick="update('hone-sundan-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="hone-sundan-e" id="hone-sundan-e" onclick="update('hone-sundan-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="hone-sundan-p" id="hone-sundan-p" onclick="update('hone-sundan-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Spire of Honor</td>
+                        <td class="tg-0pky">Lance</td>
+                        <td class="tg-0pky"><input type="checkbox" name="spire-of-honor-a" id="spire-of-honor-a" onclick="update('spire-of-honor-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="spire-of-honor-e" id="spire-of-honor-e" onclick="update('spire-of-honor-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="spire-of-honor-p" id="spire-of-honor-p" onclick="update('spire-of-honor-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">The Meat Scraper</td>
+                        <td class="tg-0pky">Lochaber Axe</td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-meat-scraper-a" id="the-meat-scraper-a" onclick="update('the-meat-scraper-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-meat-scraper-e" id="the-meat-scraper-e" onclick="update('the-meat-scraper-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-meat-scraper-p" id="the-meat-scraper-p" onclick="update('the-meat-scraper-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Blackleach Blade</td>
+                        <td class="tg-0pky">Bill</td>
+                        <td class="tg-0pky"><input type="checkbox" name="blackleach-blade-a" id="blackleach-blade-a" onclick="update('blackleach-blade-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="blackleach-blade-e" id="blackleach-blade-e" onclick="update('blackleach-blade-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="blackleach-blade-p" id="blackleach-blade-p" onclick="update('blackleach-blade-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Athena's Wrath</td>
+                        <td class="tg-0pky">Battle Scythe</td>
+                        <td class="tg-0pky"><input type="checkbox" name="athenas-wrath-a" id="athenas-wrath-a" onclick="update('athenas-wrath-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="athenas-wrath-e" id="athenas-wrath-e" onclick="update('athenas-wrath-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="athenas-wrath-p" id="athenas-wrath-p" onclick="update('athenas-wrath-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Pierre Tombale Couant</td>
+                        <td class="tg-0pky">Partizan</td>
+                        <td class="tg-0pky"><input type="checkbox" name="pierre-tombale-couant-a" id="pierre-tombale-couant-a" onclick="update('pierre-tombale-couant-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="pierre-tombale-couant-e" id="pierre-tombale-couant-e" onclick="update('pierre-tombale-couant-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="pierre-tombale-couant-p" id="pierre-tombale-couant-p" onclick="update('pierre-tombale-couant-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Husoldal Evo</td>
+                        <td class="tg-0pky">Bec-de-corbin</td>
+                        <td class="tg-0pky"><input type="checkbox" name="husoldal-evo-a" id="husoldal-evo-a" onclick="update('husoldal-evo-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="husoldal-evo-e" id="husoldal-evo-e" onclick="update('husoldal-evo-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="husoldal-evo-p" id="husoldal-evo-p" onclick="update('husoldal-evo-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Grim's Burning Dead</td>
+                        <td class="tg-0pky">Grim Scythe</td>
+                        <td class="tg-0pky"><input type="checkbox" name="grims-burning-dead-a" id="grims-burning-dead-a" onclick="update('grims-burning-dead-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="grims-burning-dead-e" id="grims-burning-dead-e" onclick="update('grims-burning-dead-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="grims-burning-dead-p" id="grims-burning-dead-p" onclick="update('grims-burning-dead-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Razorswitch</td>
+                        <td class="tg-0pky">Jo Stalf</td>
+                        <td class="tg-0pky"><input type="checkbox" name="razorswitch-a" id="razorswitch-a" onclick="update('razorswitch-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="razorswitch-e" id="razorswitch-e" onclick="update('razorswitch-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="razorswitch-p" id="razorswitch-p" onclick="update('razorswitch-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Ribcracker</td>
+                        <td class="tg-0pky">Quarterstaff</td>
+                        <td class="tg-0pky"><input type="checkbox" name="ribcracker-a" id="ribcracker-a" onclick="update('ribcracker-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="ribcracker-e" id="ribcracker-e" onclick="update('ribcracker-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="ribcracker-p" id="ribcracker-p" onclick="update('ribcracker-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Chromatic Ire</td>
+                        <td class="tg-0pky">Cedar Staff</td>
+                        <td class="tg-0pky"><input type="checkbox" name="chromatic-ire-a" id="chromatic-ire-a" onclick="update('chromatic-ire-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="chromatic-ire-e" id="chromatic-ire-e" onclick="update('chromatic-ire-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="chromatic-ire-p" id="chromatic-ire-p" onclick="update('chromatic-ire-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Warpspear</td>
+                        <td class="tg-0pky">Gothic Staff</td>
+                        <td class="tg-0pky"><input type="checkbox" name="warpspear-a" id="warpspear-a" onclick="update('warpspear-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="warpspear-e" id="warpspear-e" onclick="update('warpspear-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="warpspear-p" id="warpspear-p" onclick="update('warpspear-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Skullcollector</td>
+                        <td class="tg-0pky">Rune Staff</td>
+                        <td class="tg-0pky"><input type="checkbox" name="skullcollector-a" id="skullcollector-a" onclick="update('skullcollector-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="skullcollector-e" id="skullcollector-e" onclick="update('skullcollector-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="skullcollector-p" id="skullcollector-p" onclick="update('skullcollector-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Skystrike</td>
+                        <td class="tg-0pky">Edge Bow</td>
+                        <td class="tg-0pky"><input type="checkbox" name="skystrike-a" id="skystrike-a" onclick="update('skystrike-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="skystrike-e" id="skystrike-e" onclick="update('skystrike-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="skystrike-p" id="skystrike-p" onclick="update('skystrike-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Riphook</td>
+                        <td class="tg-0pky">Razor Bow</td>
+                        <td class="tg-0pky"><input type="checkbox" name="riphook-a" id="riphook-a" onclick="update('riphook-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="riphook-e" id="riphook-e" onclick="update('riphook-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="riphook-p" id="riphook-p" onclick="update('riphook-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Kuko Shakaku</td>
+                        <td class="tg-0pky">Cedarbow</td>
+                        <td class="tg-0pky"><input type="checkbox" name="kuko-shakaku-a" id="kuko-shakaku-a" onclick="update('kuko-shakaku-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="kuko-shakaku-e" id="kuko-shakaku-e" onclick="update('kuko-shakaku-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="kuko-shakaku-p" id="kuko-shakaku-p" onclick="update('kuko-shakaku-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Endlesshail</td>
+                        <td class="tg-0pky">Double Bow</td>
+                        <td class="tg-0pky"><input type="checkbox" name="endlesshail-a" id="endlesshail-a" onclick="update('endlesshail-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="endlesshail-e" id="endlesshail-e" onclick="update('endlesshail-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="endlesshail-p" id="endlesshail-p" onclick="update('endlesshail-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Whichwild String</td>
+                        <td class="tg-0pky">Short Siege Bow</td>
+                        <td class="tg-0pky"><input type="checkbox" name="whichwild-string-a" id="whichwild-string-a" onclick="update('whichwild-string-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="whichwild-string-e" id="whichwild-string-e" onclick="update('whichwild-string-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="whichwild-string-p" id="whichwild-string-p" onclick="update('whichwild-string-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Cliffkiller</td>
+                        <td class="tg-0pky">Long Siege Bow</td>
+                        <td class="tg-0pky"><input type="checkbox" name="cliffkiller-a" id="cliffkiller-a" onclick="update('cliffkiller-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="cliffkiller-e" id="cliffkiller-e" onclick="update('cliffkiller-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="cliffkiller-p" id="cliffkiller-p" onclick="update('cliffkiller-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Magewrath</td>
+                        <td class="tg-0pky">Rune Bow</td>
+                        <td class="tg-0pky"><input type="checkbox" name="magewrath-a" id="magewrath-a" onclick="update('magewrath-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="magewrath-e" id="magewrath-e" onclick="update('magewrath-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="magewrath-p" id="magewrath-p" onclick="update('magewrath-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Godstrike Arch</td>
+                        <td class="tg-0pky">Gothic Bow</td>
+                        <td class="tg-0pky"><input type="checkbox" name="godstrike-arch-a" id="godstrike-arch-a" onclick="update('godstrike-arch-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="godstrike-arch-e" id="godstrike-arch-e" onclick="update('godstrike-arch-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="godstrike-arch-p" id="godstrike-arch-p" onclick="update('godstrike-arch-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Langer Briser</td>
+                        <td class="tg-0pky">Arbalest</td>
+                        <td class="tg-0pky"><input type="checkbox" name="langer-briser-a" id="langer-briser-a" onclick="update('langer-briser-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="langer-briser-e" id="langer-briser-e" onclick="update('langer-briser-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="langer-briser-p" id="langer-briser-p" onclick="update('langer-briser-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Pus Spiter</td>
+                        <td class="tg-0pky">Siege Crossbow</td>
+                        <td class="tg-0pky"><input type="checkbox" name="pus-spiter-a" id="pus-spiter-a" onclick="update('pus-spiter-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="pus-spiter-e" id="pus-spiter-e" onclick="update('pus-spiter-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="pus-spiter-p" id="pus-spiter-p" onclick="update('pus-spiter-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Buriza-Do Kyanon</td>
+                        <td class="tg-0pky">Balista</td>
+                        <td class="tg-0pky"><input type="checkbox" name="buriza-do-kyanon-a" id="buriza-do-kyanon-a" onclick="update('buriza-do-kyanon-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="buriza-do-kyanon-e" id="buriza-do-kyanon-e" onclick="update('buriza-do-kyanon-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="buriza-do-kyanon-p" id="buriza-do-kyanon-p" onclick="update('buriza-do-kyanon-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Demon Machine</td>
+                        <td class="tg-0pky">Chu-ko-nu</td>
+                        <td class="tg-0pky"><input type="checkbox" name="demon-machine-a" id="demon-machine-a" onclick="update('demon-machine-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="demon-machine-e" id="demon-machine-e" onclick="update('demon-machine-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="demon-machine-p" id="demon-machine-p" onclick="update('demon-machine-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Hellslayer</td>
+                        <td class="tg-0pky">Decapitator</td>
+                        <td class="tg-0pky"><input type="checkbox" name="hellslayer-a" id="hellslayer-a" onclick="update('hellslayer-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="hellslayer-e" id="hellslayer-e" onclick="update('hellslayer-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="hellslayer-p" id="hellslayer-p" onclick="update('hellslayer-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Messerschmidt's Reaver</td>
+                        <td class="tg-0pky">Champion Axe</td>
+                        <td class="tg-0pky"><input type="checkbox" name="messerschmidts-reaver-a" id="messerschmidts-reaver-a" onclick="update('messerschmidts-reaver-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="messerschmidts-reaver-e" id="messerschmidts-reaver-e" onclick="update('messerschmidts-reaver-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="messerschmidts-reaver-p" id="messerschmidts-reaver-p" onclick="update('messerschmidts-reaver-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Baranar's Star</td>
+                        <td class="tg-0pky">Devil Star</td>
+                        <td class="tg-0pky"><input type="checkbox" name="baranars-star-a" id="baranars-star-a" onclick="update('baranars-star-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="baranars-star-e" id="baranars-star-e" onclick="update('baranars-star-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="baranars-star-p" id="baranars-star-p" onclick="update('baranars-star-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Schaefer's Hammer</td>
+                        <td class="tg-0pky">Legendary Mallet</td>
+                        <td class="tg-0pky"><input type="checkbox" name="schaefers-hammer-a" id="schaefers-hammer-a" onclick="update('schaefers-hammer-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="schaefers-hammer-e" id="schaefers-hammer-e" onclick="update('schaefers-hammer-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="schaefers-hammer-p" id="schaefers-hammer-p" onclick="update('schaefers-hammer-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">The Cranium Basher</td>
+                        <td class="tg-0pky">Thunder Maul</td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-cranium-basher-a" id="the-cranium-basher-a" onclick="update('the-cranium-basher-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-cranium-basher-e" id="the-cranium-basher-e" onclick="update('the-cranium-basher-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-cranium-basher-p" id="the-cranium-basher-p" onclick="update('the-cranium-basher-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Lightsabre</td>
+                        <td class="tg-0pky">Phase Blade</td>
+                        <td class="tg-0pky"><input type="checkbox" name="lightsabre-a" id="lightsabre-a" onclick="update('lightsabre-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="lightsabre-e" id="lightsabre-e" onclick="update('lightsabre-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="lightsabre-p" id="lightsabre-p" onclick="update('lightsabre-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Doombringer</td>
+                        <td class="tg-0pky">Champion Sword</td>
+                        <td class="tg-0pky"><input type="checkbox" name="doombringer-a" id="doombringer-a" onclick="update('doombringer-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="doombringer-e" id="doombringer-e" onclick="update('doombringer-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="doombringer-p" id="doombringer-p" onclick="update('doombringer-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">The Grandfather</td>
+                        <td class="tg-0pky">Colossus Blade</td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-grandfather-a" id="the-grandfather-a" onclick="update('the-grandfather-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-grandfather-e" id="the-grandfather-e" onclick="update('the-grandfather-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-grandfather-p" id="the-grandfather-p" onclick="update('the-grandfather-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Wizardspike</td>
+                        <td class="tg-0pky">Bone Knife</td>
+                        <td class="tg-0pky"><input type="checkbox" name="wizardspike-a" id="wizardspike-a" onclick="update('wizardspike-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="wizardspike-e" id="wizardspike-e" onclick="update('wizardspike-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="wizardspike-p" id="wizardspike-p" onclick="update('wizardspike-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Stormspire</td>
+                        <td class="tg-0pky">Giant Thresher</td>
+                        <td class="tg-0pky"><input type="checkbox" name="stormspire-a" id="stormspire-a" onclick="update('stormspire-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="stormspire-e" id="stormspire-e" onclick="update('stormspire-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="stormspire-p" id="stormspire-p" onclick="update('stormspire-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Eaglehorn</td>
+                        <td class="tg-0pky">Crusader Bow</td>
+                        <td class="tg-0pky"><input type="checkbox" name="eaglehorn-a" id="eaglehorn-a" onclick="update('eaglehorn-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="eaglehorn-e" id="eaglehorn-e" onclick="update('eaglehorn-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="eaglehorn-p" id="eaglehorn-p" onclick="update('eaglehorn-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Windforce</td>
+                        <td class="tg-0pky">Hydra Bow</td>
+                        <td class="tg-0pky"><input type="checkbox" name="windforce-a" id="windforce-a" onclick="update('windforce-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="windforce-e" id="windforce-e" onclick="update('windforce-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="windforce-p" id="windforce-p" onclick="update('windforce-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Titan's Revenge</td>
+                        <td class="tg-0pky">Ceremonial Javelin</td>
+                        <td class="tg-0pky"><input type="checkbox" name="titans-revenge-a" id="titans-revenge-a" onclick="update('titans-revenge-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="titans-revenge-e" id="titans-revenge-e" onclick="update('titans-revenge-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="titans-revenge-p" id="titans-revenge-p" onclick="update('titans-revenge-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Lycander's Aim</td>
+                        <td class="tg-0pky">Ceremonial Bow</td>
+                        <td class="tg-0pky"><input type="checkbox" name="lycanders-aim-a" id="lycanders-aim-a" onclick="update('lycanders-aim-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="lycanders-aim-e" id="lycanders-aim-e" onclick="update('lycanders-aim-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="lycanders-aim-p" id="lycanders-aim-p" onclick="update('lycanders-aim-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Lycander's Flank</td>
+                        <td class="tg-0pky">Ceremonial Pike</td>
+                        <td class="tg-0pky"><input type="checkbox" name="lycanders-flank-a" id="lycanders-flank-a" onclick="update('lycanders-flank-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="lycanders-flank-e" id="lycanders-flank-e" onclick="update('lycanders-flank-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="lycanders-flank-p" id="lycanders-flank-p" onclick="update('lycanders-flank-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">The Oculus</td>
+                        <td class="tg-0pky">Swirling Crystal</td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-oculus-a" id="the-oculus-a" onclick="update('the-oculus-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-oculus-e" id="the-oculus-e" onclick="update('the-oculus-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-oculus-p" id="the-oculus-p" onclick="update('the-oculus-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Cutthroat1</td>
+                        <td class="tg-0pky">Runic Talons</td>
+                        <td class="tg-0pky"><input type="checkbox" name="cutthroat1-a" id="cutthroat1-a" onclick="update('cutthroat1-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="cutthroat1-e" id="cutthroat1-e" onclick="update('cutthroat1-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="cutthroat1-p" id="cutthroat1-p" onclick="update('cutthroat1-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">The Scalper</td>
+                        <td class="tg-0pky">Francisca</td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-scalper-a" id="the-scalper-a" onclick="update('the-scalper-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-scalper-e" id="the-scalper-e" onclick="update('the-scalper-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-scalper-p" id="the-scalper-p" onclick="update('the-scalper-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Bloodmoon</td>
+                        <td class="tg-0pky">Elegant Blade</td>
+                        <td class="tg-0pky"><input type="checkbox" name="bloodmoon-a" id="bloodmoon-a" onclick="update('bloodmoon-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="bloodmoon-e" id="bloodmoon-e" onclick="update('bloodmoon-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="bloodmoon-p" id="bloodmoon-p" onclick="update('bloodmoon-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Djinnslayer</td>
+                        <td class="tg-0pky">Ataghan</td>
+                        <td class="tg-0pky"><input type="checkbox" name="djinnslayer-a" id="djinnslayer-a" onclick="update('djinnslayer-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="djinnslayer-e" id="djinnslayer-e" onclick="update('djinnslayer-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="djinnslayer-p" id="djinnslayer-p" onclick="update('djinnslayer-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Deathbit</td>
+                        <td class="tg-0pky">Battle Dart</td>
+                        <td class="tg-0pky"><input type="checkbox" name="deathbit-a" id="deathbit-a" onclick="update('deathbit-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="deathbit-e" id="deathbit-e" onclick="update('deathbit-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="deathbit-p" id="deathbit-p" onclick="update('deathbit-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Warshrike</td>
+                        <td class="tg-0pky">Winged Knife</td>
+                        <td class="tg-0pky"><input type="checkbox" name="warshrike-a" id="warshrike-a" onclick="update('warshrike-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="warshrike-e" id="warshrike-e" onclick="update('warshrike-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="warshrike-p" id="warshrike-p" onclick="update('warshrike-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Gutsiphon</td>
+                        <td class="tg-0pky">Demon Crossbow</td>
+                        <td class="tg-0pky"><input type="checkbox" name="gutsiphon-a" id="gutsiphon-a" onclick="update('gutsiphon-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="gutsiphon-e" id="gutsiphon-e" onclick="update('gutsiphon-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="gutsiphon-p" id="gutsiphon-p" onclick="update('gutsiphon-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Razoredge</td>
+                        <td class="tg-0pky">Tomahawk</td>
+                        <td class="tg-0pky"><input type="checkbox" name="razoredge-a" id="razoredge-a" onclick="update('razoredge-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="razoredge-e" id="razoredge-e" onclick="update('razoredge-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="razoredge-p" id="razoredge-p" onclick="update('razoredge-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Demonlimb</td>
+                        <td class="tg-0pky">Tyrant Club</td>
+                        <td class="tg-0pky"><input type="checkbox" name="demonlimb-a" id="demonlimb-a" onclick="update('demonlimb-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="demonlimb-e" id="demonlimb-e" onclick="update('demonlimb-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="demonlimb-p" id="demonlimb-p" onclick="update('demonlimb-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Tomb Reaver</td>
+                        <td class="tg-0pky">Cryptic Axe</td>
+                        <td class="tg-0pky"><input type="checkbox" name="tomb-reaver-a" id="tomb-reaver-a" onclick="update('tomb-reaver-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="tomb-reaver-e" id="tomb-reaver-e" onclick="update('tomb-reaver-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="tomb-reaver-p" id="tomb-reaver-p" onclick="update('tomb-reaver-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Death's Web</td>
+                        <td class="tg-0pky">Unearthed Wand</td>
+                        <td class="tg-0pky"><input type="checkbox" name="deaths-web-a" id="deaths-web-a" onclick="update('deaths-web-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="deaths-web-e" id="deaths-web-e" onclick="update('deaths-web-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="deaths-web-p" id="deaths-web-p" onclick="update('deaths-web-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Azurewrath</td>
+                        <td class="tg-0pky">Phase Blade</td>
+                        <td class="tg-0pky"><input type="checkbox" name="azurewrath-a" id="azurewrath-a" onclick="update('azurewrath-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="azurewrath-e" id="azurewrath-e" onclick="update('azurewrath-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="azurewrath-p" id="azurewrath-p" onclick="update('azurewrath-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Fleshripper</td>
+                        <td class="tg-0pky">Fanged Knife</td>
+                        <td class="tg-0pky"><input type="checkbox" name="fleshripper-a" id="fleshripper-a" onclick="update('fleshripper-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="fleshripper-e" id="fleshripper-e" onclick="update('fleshripper-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="fleshripper-p" id="fleshripper-p" onclick="update('fleshripper-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Horizon's Tornado</td>
+                        <td class="tg-0pky">Scourge</td>
+                        <td class="tg-0pky"><input type="checkbox" name="horizons-tornado-a" id="horizons-tornado-a" onclick="update('horizons-tornado-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="horizons-tornado-e" id="horizons-tornado-e" onclick="update('horizons-tornado-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="horizons-tornado-p" id="horizons-tornado-p" onclick="update('horizons-tornado-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Stone Crusher</td>
+                        <td class="tg-0pky">Legendary Mallet</td>
+                        <td class="tg-0pky"><input type="checkbox" name="stone-crusher-a" id="stone-crusher-a" onclick="update('stone-crusher-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="stone-crusher-e" id="stone-crusher-e" onclick="update('stone-crusher-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="stone-crusher-p" id="stone-crusher-p" onclick="update('stone-crusher-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Jadetalon</td>
+                        <td class="tg-0pky">Wrist Sword</td>
+                        <td class="tg-0pky"><input type="checkbox" name="jadetalon-a" id="jadetalon-a" onclick="update('jadetalon-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="jadetalon-e" id="jadetalon-e" onclick="update('jadetalon-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="jadetalon-p" id="jadetalon-p" onclick="update('jadetalon-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Runemaster</td>
+                        <td class="tg-0pky">Ettin Axe</td>
+                        <td class="tg-0pky"><input type="checkbox" name="runemaster-a" id="runemaster-a" onclick="update('runemaster-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="runemaster-e" id="runemaster-e" onclick="update('runemaster-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="runemaster-p" id="runemaster-p" onclick="update('runemaster-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Deathcleaver</td>
+                        <td class="tg-0pky">Berserker Axe</td>
+                        <td class="tg-0pky"><input type="checkbox" name="deathcleaver-a" id="deathcleaver-a" onclick="update('deathcleaver-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="deathcleaver-e" id="deathcleaver-e" onclick="update('deathcleaver-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="deathcleaver-p" id="deathcleaver-p" onclick="update('deathcleaver-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Executioner's Justice</td>
+                        <td class="tg-0pky">Glorious Axe</td>
+                        <td class="tg-0pky"><input type="checkbox" name="executioners-justice-a" id="executioners-justice-a" onclick="update('executioners-justice-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="executioners-justice-e" id="executioners-justice-e" onclick="update('executioners-justice-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="executioners-justice-p" id="executioners-justice-p" onclick="update('executioners-justice-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Stoneraven</td>
+                        <td class="tg-0pky">Matriarchal Spear</td>
+                        <td class="tg-0pky"><input type="checkbox" name="stoneraven-a" id="stoneraven-a" onclick="update('stoneraven-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="stoneraven-e" id="stoneraven-e" onclick="update('stoneraven-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="stoneraven-p" id="stoneraven-p" onclick="update('stoneraven-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Gargoyle's Bite</td>
+                        <td class="tg-0pky">Winged Harpoon</td>
+                        <td class="tg-0pky"><input type="checkbox" name="gargoyles-bite-a" id="gargoyles-bite-a" onclick="update('gargoyles-bite-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="gargoyles-bite-e" id="gargoyles-bite-e" onclick="update('gargoyles-bite-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="gargoyles-bite-p" id="gargoyles-bite-p" onclick="update('gargoyles-bite-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Lacerator</td>
+                        <td class="tg-0pky">Winged Axe</td>
+                        <td class="tg-0pky"><input type="checkbox" name="lacerator-a" id="lacerator-a" onclick="update('lacerator-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="lacerator-e" id="lacerator-e" onclick="update('lacerator-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="lacerator-p" id="lacerator-p" onclick="update('lacerator-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Mang Song's Lesson</td>
+                        <td class="tg-0pky">Archon Staff</td>
+                        <td class="tg-0pky"><input type="checkbox" name="mang-songs-lesson-a" id="mang-songs-lesson-a" onclick="update('mang-songs-lesson-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="mang-songs-lesson-e" id="mang-songs-lesson-e" onclick="update('mang-songs-lesson-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="mang-songs-lesson-p" id="mang-songs-lesson-p" onclick="update('mang-songs-lesson-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Viperfork</td>
+                        <td class="tg-0pky">War Fork</td>
+                        <td class="tg-0pky"><input type="checkbox" name="viperfork-a" id="viperfork-a" onclick="update('viperfork-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="viperfork-e" id="viperfork-e" onclick="update('viperfork-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="viperfork-p" id="viperfork-p" onclick="update('viperfork-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Ethereal Edge</td>
+                        <td class="tg-0pky">Silver-edged Axe</td>
+                        <td class="tg-0pky"><input type="checkbox" name="ethereal-edge-a" id="ethereal-edge-a" onclick="update('ethereal-edge-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="ethereal-edge-e" id="ethereal-edge-e" onclick="update('ethereal-edge-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="ethereal-edge-p" id="ethereal-edge-p" onclick="update('ethereal-edge-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">The Reaper's Toll</td>
+                        <td class="tg-0pky">Thresher</td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-reapers-toll-a" id="the-reapers-toll-a" onclick="update('the-reapers-toll-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-reapers-toll-e" id="the-reapers-toll-e" onclick="update('the-reapers-toll-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-reapers-toll-p" id="the-reapers-toll-p" onclick="update('the-reapers-toll-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Hellrack</td>
+                        <td class="tg-0pky">Colossus Crossbow</td>
+                        <td class="tg-0pky"><input type="checkbox" name="hellrack-a" id="hellrack-a" onclick="update('hellrack-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="hellrack-e" id="hellrack-e" onclick="update('hellrack-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="hellrack-p" id="hellrack-p" onclick="update('hellrack-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Widowmaker</td>
+                        <td class="tg-0pky">Ward Bow</td>
+                        <td class="tg-0pky"><input type="checkbox" name="widowmaker-a" id="widowmaker-a" onclick="update('widowmaker-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="widowmaker-e" id="widowmaker-e" onclick="update('widowmaker-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="widowmaker-p" id="widowmaker-p" onclick="update('widowmaker-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Bloodraven's Charge</td>
+                        <td class="tg-0pky">Matriarchal Bow</td>
+                        <td class="tg-0pky"><input type="checkbox" name="bloodravens-charge-a" id="bloodravens-charge-a" onclick="update('bloodravens-charge-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="bloodravens-charge-e" id="bloodravens-charge-e" onclick="update('bloodravens-charge-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="bloodravens-charge-p" id="bloodravens-charge-p" onclick="update('bloodravens-charge-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Ghostflame</td>
+                        <td class="tg-0pky">Legend Spike</td>
+                        <td class="tg-0pky"><input type="checkbox" name="ghostflame-a" id="ghostflame-a" onclick="update('ghostflame-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="ghostflame-e" id="ghostflame-e" onclick="update('ghostflame-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="ghostflame-p" id="ghostflame-p" onclick="update('ghostflame-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Shadowkiller</td>
+                        <td class="tg-0pky">Battle Cestus</td>
+                        <td class="tg-0pky"><input type="checkbox" name="shadowkiller-a" id="shadowkiller-a" onclick="update('shadowkiller-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="shadowkiller-e" id="shadowkiller-e" onclick="update('shadowkiller-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="shadowkiller-p" id="shadowkiller-p" onclick="update('shadowkiller-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Gimmershred</td>
+                        <td class="tg-0pky">Flying Axe</td>
+                        <td class="tg-0pky"><input type="checkbox" name="gimmershred-a" id="gimmershred-a" onclick="update('gimmershred-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="gimmershred-e" id="gimmershred-e" onclick="update('gimmershred-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="gimmershred-p" id="gimmershred-p" onclick="update('gimmershred-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Windhammer</td>
+                        <td class="tg-0pky">Ogre Maul</td>
+                        <td class="tg-0pky"><input type="checkbox" name="windhammer-a" id="windhammer-a" onclick="update('windhammer-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="windhammer-e" id="windhammer-e" onclick="update('windhammer-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="windhammer-p" id="windhammer-p" onclick="update('windhammer-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Thunderstroke</td>
+                        <td class="tg-0pky">Matriarchal Javelin</td>
+                        <td class="tg-0pky"><input type="checkbox" name="thunderstroke-a" id="thunderstroke-a" onclick="update('thunderstroke-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="thunderstroke-e" id="thunderstroke-e" onclick="update('thunderstroke-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="thunderstroke-p" id="thunderstroke-p" onclick="update('thunderstroke-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Demon's Arch</td>
+                        <td class="tg-0pky">Balrog Spear</td>
+                        <td class="tg-0pky"><input type="checkbox" name="demons-arch-a" id="demons-arch-a" onclick="update('demons-arch-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="demons-arch-e" id="demons-arch-e" onclick="update('demons-arch-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="demons-arch-p" id="demons-arch-p" onclick="update('demons-arch-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Steelpillar</td>
+                        <td class="tg-0pky">War Pike</td>
+                        <td class="tg-0pky"><input type="checkbox" name="steelpillar-a" id="steelpillar-a" onclick="update('steelpillar-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="steelpillar-e" id="steelpillar-e" onclick="update('steelpillar-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="steelpillar-p" id="steelpillar-p" onclick="update('steelpillar-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Boneshade</td>
+                        <td class="tg-0pky">Lich Wand</td>
+                        <td class="tg-0pky"><input type="checkbox" name="boneshade-a" id="boneshade-a" onclick="update('boneshade-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="boneshade-e" id="boneshade-e" onclick="update('boneshade-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="boneshade-p" id="boneshade-p" onclick="update('boneshade-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Flamebellow</td>
+                        <td class="tg-0pky">Balrog Blade</td>
+                        <td class="tg-0pky"><input type="checkbox" name="flamebellow-a" id="flamebellow-a" onclick="update('flamebellow-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="flamebellow-e" id="flamebellow-e" onclick="update('flamebellow-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="flamebellow-p" id="flamebellow-p" onclick="update('flamebellow-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Fathom</td>
+                        <td class="tg-0pky">Dimensional Shard</td>
+                        <td class="tg-0pky"><input type="checkbox" name="fathom-a" id="fathom-a" onclick="update('fathom-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="fathom-e" id="fathom-e" onclick="update('fathom-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="fathom-p" id="fathom-p" onclick="update('fathom-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Stormlash</td>
+                        <td class="tg-0pky">Scourge</td>
+                        <td class="tg-0pky"><input type="checkbox" name="stormlash-a" id="stormlash-a" onclick="update('stormlash-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="stormlash-e" id="stormlash-e" onclick="update('stormlash-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="stormlash-p" id="stormlash-p" onclick="update('stormlash-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Frostwind</td>
+                        <td class="tg-0pky">Cryptic Sword</td>
+                        <td class="tg-0pky"><input type="checkbox" name="frostwind-a" id="frostwind-a" onclick="update('frostwind-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="frostwind-e" id="frostwind-e" onclick="update('frostwind-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="frostwind-p" id="frostwind-p" onclick="update('frostwind-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Eschuta's temper</td>
+                        <td class="tg-0pky">Eldritch Orb</td>
+                        <td class="tg-0pky"><input type="checkbox" name="eschutas-temper-a" id="eschutas-temper-a" onclick="update('eschutas-temper-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="eschutas-temper-e" id="eschutas-temper-e" onclick="update('eschutas-temper-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="eschutas-temper-p" id="eschutas-temper-p" onclick="update('eschutas-temper-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Firelizard's Talons</td>
+                        <td class="tg-0pky">Feral Claws</td>
+                        <td class="tg-0pky"><input type="checkbox" name="firelizards-talons-a" id="firelizards-talons-a" onclick="update('firelizards-talons-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="firelizards-talons-e" id="firelizards-talons-e" onclick="update('firelizards-talons-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="firelizards-talons-p" id="firelizards-talons-p" onclick="update('firelizards-talons-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Heaven's Light</td>
+                        <td class="tg-0pky">Mighty Scepter</td>
+                        <td class="tg-0pky"><input type="checkbox" name="heavens-light-a" id="heavens-light-a" onclick="update('heavens-light-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="heavens-light-e" id="heavens-light-e" onclick="update('heavens-light-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="heavens-light-p" id="heavens-light-p" onclick="update('heavens-light-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Ironward</td>
+                        <td class="tg-0pky">Caduceus</td>
+                        <td class="tg-0pky"><input type="checkbox" name="ironward-a" id="ironward-a" onclick="update('ironward-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="ironward-e" id="ironward-e" onclick="update('ironward-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="ironward-p" id="ironward-p" onclick="update('ironward-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Arioc's Needle</td>
+                        <td class="tg-0pky">Hyperion Spear</td>
+                        <td class="tg-0pky"><input type="checkbox" name="ariocs-needle-a" id="ariocs-needle-a" onclick="update('ariocs-needle-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="ariocs-needle-e" id="ariocs-needle-e" onclick="update('ariocs-needle-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="ariocs-needle-p" id="ariocs-needle-p" onclick="update('ariocs-needle-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Cranebeak</td>
+                        <td class="tg-0pky">War Spike</td>
+                        <td class="tg-0pky"><input type="checkbox" name="cranebeak-a" id="cranebeak-a" onclick="update('cranebeak-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="cranebeak-e" id="cranebeak-e" onclick="update('cranebeak-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="cranebeak-p" id="cranebeak-p" onclick="update('cranebeak-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Nord's Tenderizer</td>
+                        <td class="tg-0pky">Truncheon</td>
+                        <td class="tg-0pky"><input type="checkbox" name="nords-tenderizer-a" id="nords-tenderizer-a" onclick="update('nords-tenderizer-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="nords-tenderizer-e" id="nords-tenderizer-e" onclick="update('nords-tenderizer-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="nords-tenderizer-p" id="nords-tenderizer-p" onclick="update('nords-tenderizer-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Earthshifter</td>
+                        <td class="tg-0pky">Thunder Maul</td>
+                        <td class="tg-0pky"><input type="checkbox" name="earthshifter-a" id="earthshifter-a" onclick="update('earthshifter-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="earthshifter-e" id="earthshifter-e" onclick="update('earthshifter-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="earthshifter-p" id="earthshifter-p" onclick="update('earthshifter-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Wraithflight</td>
+                        <td class="tg-0pky">Ghost Glaive</td>
+                        <td class="tg-0pky"><input type="checkbox" name="wraithflight-a" id="wraithflight-a" onclick="update('wraithflight-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="wraithflight-e" id="wraithflight-e" onclick="update('wraithflight-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="wraithflight-p" id="wraithflight-p" onclick="update('wraithflight-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Bonehew</td>
+                        <td class="tg-0pky">Ogre Axe</td>
+                        <td class="tg-0pky"><input type="checkbox" name="bonehew-a" id="bonehew-a" onclick="update('bonehew-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="bonehew-e" id="bonehew-e" onclick="update('bonehew-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="bonehew-p" id="bonehew-p" onclick="update('bonehew-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Ondal's Wisdom</td>
+                        <td class="tg-0pky">Elder Staff</td>
+                        <td class="tg-0pky"><input type="checkbox" name="ondals-wisdom-a" id="ondals-wisdom-a" onclick="update('ondals-wisdom-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="ondals-wisdom-e" id="ondals-wisdom-e" onclick="update('ondals-wisdom-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="ondals-wisdom-p" id="ondals-wisdom-p" onclick="update('ondals-wisdom-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">The Reedeemer</td>
+                        <td class="tg-0pky">Mighty Scepter</td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-reedeemer-a" id="the-reedeemer-a" onclick="update('the-reedeemer-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-reedeemer-e" id="the-reedeemer-e" onclick="update('the-reedeemer-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-reedeemer-p" id="the-reedeemer-p" onclick="update('the-reedeemer-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Gaia's Precision</td>
+                        <td class="tg-0pky">Matriarchal Pik</td>
+                        <td class="tg-0pky"><input type="checkbox" name="gaias-precision-a" id="gaias-precision-a" onclick="update('gaias-precision-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="gaias-precision-e" id="gaias-precision-e" onclick="update('gaias-precision-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="gaias-precision-p" id="gaias-precision-p" onclick="update('gaias-precision-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Saboteurs Blade</td>
+                        <td class="tg-0pky">Scissors Suwayh</td>
+                        <td class="tg-0pky"><input type="checkbox" name="saboteurs-blade-a" id="saboteurs-blade-a" onclick="update('saboteurs-blade-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="saboteurs-blade-e" id="saboteurs-blade-e" onclick="update('saboteurs-blade-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="saboteurs-blade-p" id="saboteurs-blade-p" onclick="update('saboteurs-blade-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Mistiltein</td>
+                        <td class="tg-0pky">Mythical Sword</td>
+                        <td class="tg-0pky"><input type="checkbox" name="mistiltein-a" id="mistiltein-a" onclick="update('mistiltein-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="mistiltein-e" id="mistiltein-e" onclick="update('mistiltein-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="mistiltein-p" id="mistiltein-p" onclick="update('mistiltein-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Thunderfury</td>
+                        <td class="tg-0pky">Conquest Sword</td>
+                        <td class="tg-0pky"><input type="checkbox" name="thunderfury-a" id="thunderfury-a" onclick="update('thunderfury-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="thunderfury-e" id="thunderfury-e" onclick="update('thunderfury-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="thunderfury-p" id="thunderfury-p" onclick="update('thunderfury-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Slayer's Edge</td>
+                        <td class="tg-0pky">Hydra Edge</td>
+                        <td class="tg-0pky"><input type="checkbox" name="slayers-edge-a" id="slayers-edge-a" onclick="update('slayers-edge-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="slayers-edge-e" id="slayers-edge-e" onclick="update('slayers-edge-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="slayers-edge-p" id="slayers-edge-p" onclick="update('slayers-edge-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Simple Solution</td>
+                        <td class="tg-0pky">Seraph Rod</td>
+                        <td class="tg-0pky"><input type="checkbox" name="simple-solution-a" id="simple-solution-a" onclick="update('simple-solution-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="simple-solution-e" id="simple-solution-e" onclick="update('simple-solution-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="simple-solution-p" id="simple-solution-p" onclick="update('simple-solution-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Wrath of the High Heavens</td>
+                        <td class="tg-0pky">Hydra Bow</td>
+                        <td class="tg-0pky"><input type="checkbox" name="wrath-of-the-high-heavens-a" id="wrath-of-the-high-heavens-a" onclick="update('wrath-of-the-high-heavens-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="wrath-of-the-high-heavens-e" id="wrath-of-the-high-heavens-e" onclick="update('wrath-of-the-high-heavens-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="wrath-of-the-high-heavens-p" id="wrath-of-the-high-heavens-p" onclick="update('wrath-of-the-high-heavens-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">The Corrupted Grandfather</td>
+                        <td class="tg-0pky">Colossus Blade</td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-corrupted-grandfather-a" id="the-corrupted-grandfather-a" onclick="update('the-corrupted-grandfather-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-corrupted-grandfather-e" id="the-corrupted-grandfather-e" onclick="update('the-corrupted-grandfather-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="the-corrupted-grandfather-p" id="the-corrupted-grandfather-p" onclick="update('the-corrupted-grandfather-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Corrupted Bartuc's Cut-Throat</td>
+                        <td class="tg-0pky">Blade Talons</td>
+                        <td class="tg-0pky"><input type="checkbox" name="corrupted-bartucs-cut-throat-a" id="corrupted-bartucs-cut-throat-a" onclick="update('corrupted-bartucs-cut-throat-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="corrupted-bartucs-cut-throat-e" id="corrupted-bartucs-cut-throat-e" onclick="update('corrupted-bartucs-cut-throat-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="corrupted-bartucs-cut-throat-p" id="corrupted-bartucs-cut-throat-p" onclick="update('corrupted-bartucs-cut-throat-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Corrupted Azurewrath</td>
+                        <td class="tg-0pky">Crystal Sword</td>
+                        <td class="tg-0pky"><input type="checkbox" name="corrupted-azurewrath-a" id="corrupted-azurewrath-a" onclick="update('corrupted-azurewrath-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="corrupted-azurewrath-e" id="corrupted-azurewrath-e" onclick="update('corrupted-azurewrath-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="corrupted-azurewrath-p" id="corrupted-azurewrath-p" onclick="update('corrupted-azurewrath-p')"></td>
+                    </tr>
+                    <tr>
+                        <td class="color-unique tg-0pky">Thunderlords Overcharge</td>
+                        <td class="tg-0pky">Dimensional Shard</td>
+                        <td class="tg-0pky"><input type="checkbox" name="thunderlords-overcharge-a" id="thunderlords-overcharge-a" onclick="update('thunderlords-overcharge-a')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="thunderlords-overcharge-e" id="thunderlords-overcharge-e" onclick="update('thunderlords-overcharge-e')"></td>
+                        <td class="tg-0pky"><input type="checkbox" name="thunderlords-overcharge-p" id="thunderlords-overcharge-p" onclick="update('thunderlords-overcharge-p')"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="tabs-page" id="armor">
+            <p>Armor text</p>
+        </div>
+
+        <div class="tabs-page" id="other">
+            <p>Other text</p>
+        </div>
+
+        <div class="tabs-page" id="sets">
+            <p>Sets text</p>
+        </div>
+
+        <div class="tabs-page" id="runes">
+            <p>Runes text</p>
         </div>
     </div>
+
+    <div class="footer">
+        <div>
+            <button class="btd-btn" onclick="save()">Save</a>
+        </div>
+        <div>
+            <input type="file" id="fileInput" style="display: none;"  />
+            <label for="fileInput" class="custom-button">Load</label>
+        </div>
+    </div>
+
+    <script src="btdhg.js"></script>
 </body>
-<script src="btdhg.js"></script>
+
+
 </html>
+

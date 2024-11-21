@@ -1,7 +1,55 @@
 html {
     background-color: black;
     color: white;
-    font-size: 2em;
+    font-size: 1.75em;
+}
+
+.container {
+    margin-bottom: 50px;
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    background-color: black;
+    z-index: 9999;
+}
+
+/* Base style for the checkbox */
+input[type="checkbox"] {
+    -webkit-appearance: none; /* Remove default appearance in Webkit browsers (Chrome, Safari) */
+    -moz-appearance: none;    /* Remove default appearance in Firefox */
+    appearance: none;         /* Remove default appearance in modern browsers */
+    width: 20px;              /* Width of the checkbox */
+    height: 20px;             /* Height of the checkbox */
+    border: 2px solid grey;   /* Grey border for both states */
+    background-color: black;  /* Black background for both states */
+    border-radius: 4px;       /* Optional: rounded corners */
+    position: relative;       /* To position the check mark */
+    cursor: pointer;          /* Pointer cursor on hover */
+}
+
+/* Add a white checkmark when checked */
+input[type="checkbox"]:checked::after {
+    content: "";              /* Adds the checkmark */
+    position: absolute;
+    top: 50%;                 /* Start from vertical center */
+    left: 50%;                /* Start from horizontal center */
+    width: 5px;               /* Width of the checkmark */
+    height: 10px;             /* Height of the checkmark */
+    border: solid white;      /* White color for the checkmark */
+    border-width: 0 2px 2px 0; /* Create the checkmark shape */
+    transform: translate(-50%, -60%) rotate(45deg); /* Center and rotate the checkmark */
+}
+
+/* Optional: Add focus state for accessibility */
+input[type="checkbox"]:focus {
+    outline: none;            /* Remove default outline */
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5); /* Optional: white focus ring */
+}
+
+.color-ethereal {
+    color: grey;
 }
 
 .color-unique {
@@ -26,6 +74,7 @@ html {
 .tab {
     margin: 8px;
     padding: 8px;
+    cursor: pointer;
 }
 
 .tab-active {
@@ -47,4 +96,101 @@ html {
     border: none;
     background: none;
     color: white;
+}
+
+.tabs-page {
+    display: none;
+}
+
+div#statistics {
+    display: flex;
+    justify-content: space-between;
+}
+
+table {
+    width: 95%;
+    table-layout: fixed;
+}
+
+table tr td:first-child {
+    font-weight: bold;
+}
+
+table tr:last-child {
+    border-width: 5px;
+}
+
+.tg {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 0px auto;
+}
+
+.tg td {
+    border-color: white;
+    border-style: solid;
+    border-width: 1px;
+    overflow: hidden;
+    padding: 10px 5px;
+}
+
+.tg th {
+    border-color: white;
+    border-style: solid;
+    border-width: 1px;
+    overflow: hidden;
+    padding: 10px 5px;
+}
+
+.tg .tg-0lax {
+    text-align: center;
+    vertical-align: center;
+}
+
+/* Weapons CSS */
+.tg .tg-0pky {
+    text-align: center;
+    vertical-align: center;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    /* justify-content: center; */
+    position: fixed;
+    width: 100%;
+    height: 5%;
+    bottom: 0;
+    background-color: black;
+    color: white;
+}
+
+/* Style the custom label */
+.custom-button {
+    display: inline-flex;
+    padding: 7px 20px;
+    background-color: grey;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}
+
+/* Add hover effect */
+.custom-button:hover {
+    background-color: black; /* Darker blue on hover */
+}
+
+.btd-btn {
+    padding: 7px 20px;
+    background-color: grey;
+    color: white;
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
