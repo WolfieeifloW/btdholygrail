@@ -6,4 +6,4 @@
 6. Add Exocet font to site
 7. Add stats on item name hover
 8. Allow notes on each checkbox
-9. 
+9. Dynamically load content into each tab via a JSON file (instead of hardcoded HTML)
