@@ -1,2 +1,1 @@
-# btdholygrail
-BTDiablo Holy Grail Tracker
+# BTDiablo Holy Grail Tracker
