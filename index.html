@@ -4578,8 +4578,27 @@
             <button class="btd-btn" onclick="save()" title="Save your grail to a local JSON file which can be used to load back in later. Useful for backing up (in case your Local Storage in browser gets wiped out) or if you switch computers or browsers.">Save</a>
         </div>
         <div>
+            <span id="help-icon">?</span>
+        </div>
+        <div>
             <input type="file" id="fileInput" style="display: none;" />
             <label for="fileInput" class="custom-button" title="Load your grail from a previously saved local JSON file.">Load</label>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="help-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="close-modal">&times;</span>
+            <h2>Using BTDiablo Holy Grail</h2>
+            <p>
+                Check (or uncheck!) the items you've collected in your adventures in BTDiablo. The grail will automatically update, and you can view your grails statistics on the Statistics tab.<br/>
+                <br/>
+                The grail uses your browsers Local Storage to automatically save your progress. <b><u>Please note</u></b> that Local Storage <i>can</i> get cleared out. Clearing your browsers cache, cookies, and/or other site data can clear it out.<br/>
+                <br/>
+                The Save button will export your grail as a JSON file. This file can be imported via the Load button to restore your grail.<br/>
+                This is useful for backing up your grail, or if you switch computers or browsers.
+            </p>
         </div>
     </div>
 

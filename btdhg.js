@@ -207,6 +207,31 @@ document.addEventListener('keydown', function(event) {
 // -------------------------
 
 // -------------------------
+// ? modal
+// Get elements
+const helpIcon = document.getElementById('help-icon');
+const modal = document.getElementById('help-modal');
+const closeModal = document.getElementById('close-modal');
+
+// Open modal when help icon is clicked
+helpIcon.addEventListener('click', () => {
+    modal.style.display = 'block';
+});
+
+// Close modal when close button is clicked
+closeModal.addEventListener('click', () => {
+    modal.style.display = 'none';
+});
+
+// Close modal if clicked outside modal content
+window.addEventListener('click', (event) => {
+    if (event.target === modal) {
+        modal.style.display = 'none';
+    }
+});
+// -------------------------
+
+// -------------------------
 // Update all categories and totals
 updateAllCategories();
 updateTotals();
