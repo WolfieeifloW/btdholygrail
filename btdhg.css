@@ -17,35 +17,35 @@ html {
 
 /* Base style for the checkbox */
 input[type="checkbox"] {
-    -webkit-appearance: none; /* Remove default appearance in Webkit browsers (Chrome, Safari) */
-    -moz-appearance: none;    /* Remove default appearance in Firefox */
-    appearance: none;         /* Remove default appearance in modern browsers */
-    width: 20px;              /* Width of the checkbox */
-    height: 20px;             /* Height of the checkbox */
-    border: 2px solid grey;   /* Grey border for both states */
-    background-color: black;  /* Black background for both states */
-    border-radius: 4px;       /* Optional: rounded corners */
-    position: relative;       /* To position the check mark */
-    cursor: pointer;          /* Pointer cursor on hover */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid grey;
+    background-color: black;
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
 }
 
 /* Add a white checkmark when checked */
 input[type="checkbox"]:checked::after {
-    content: "";              /* Adds the checkmark */
+    content: "";
     position: absolute;
-    top: 50%;                 /* Start from vertical center */
-    left: 50%;                /* Start from horizontal center */
-    width: 5px;               /* Width of the checkmark */
-    height: 10px;             /* Height of the checkmark */
-    border: solid white;      /* White color for the checkmark */
-    border-width: 0 2px 2px 0; /* Create the checkmark shape */
-    transform: translate(-50%, -60%) rotate(45deg); /* Center and rotate the checkmark */
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: translate(-50%, -60%) rotate(45deg);
 }
 
 /* Optional: Add focus state for accessibility */
 input[type="checkbox"]:focus {
-    outline: none;            /* Remove default outline */
-    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5); /* Optional: white focus ring */
+    outline: none;
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5);
 }
 
 .color-ethereal {
@@ -110,6 +110,8 @@ div#statistics {
 table {
     width: 95%;
     table-layout: fixed;
+    margin-top: 66px;
+    /* border-collapse: collapse; */
 }
 
 table tr td:first-child {
@@ -120,21 +122,23 @@ table tr:last-child {
     border-width: 5px;
 }
 
+thead {
+    position: sticky;
+    top: 67px;
+    background-color: black;
+    z-index: 100;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
 .tg {
-    border-collapse: collapse;
+    /* border-collapse: collapse; */
     border-spacing: 0;
     margin: 0px auto;
 }
 
-.tg td {
-    border-color: white;
-    border-style: solid;
-    border-width: 1px;
-    overflow: hidden;
-    padding: 10px 5px;
-}
-
-.tg th {
+.tg td, .tg th {
     border-color: white;
     border-style: solid;
     border-width: 1px;
@@ -181,7 +185,7 @@ table tr:last-child {
 
 /* Add hover effect */
 .custom-button:hover {
-    background-color: black; /* Darker blue on hover */
+    background-color: black;
 }
 
 .btd-btn {

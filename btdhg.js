@@ -13,10 +13,6 @@ function f(t) {
     document.getElementById(t+'-tab').classList.add("tab-active"); // Add the 'tab-active' class to the new tab to show underline
 
     if (document.getElementById(t).id === 'statistics') {
-    //     overallCategories.forEach(updateOverall);
-    //     etherealCategories.forEach(updateEthereal);
-    //     perfectCategories.forEach(updatePerfect);
-    //     updateTotals();
         updateAllCategories();
         updateTotals();
     };
@@ -65,7 +61,11 @@ function updateTotals() {
 // Updating localStorage whenever an item is checked or unchecked
 function update(t) {
     var checkbox = document.getElementById(t); // Get the checkbox being updated
-    localStorage.setItem(t, checkbox.checked); // Set localStorage for that checkbox's ID to true/false based on if it's checked or unchecked, respectively
+    // if (checkbox.checked === true) {
+        localStorage.setItem(t, checkbox.checked); // Set localStorage for that checkbox's ID to true/false based on if it's checked or unchecked, respectively
+    // } else {
+        // localStorage.removeItem(t);
+    // }
 }
 // -------------------------
 
@@ -145,11 +145,10 @@ document.getElementById('fileInput').addEventListener('change', function(event) 
 // -------------------------
 // When the page loads, set all checkboxes to check or unchecked based on their localStorage value
 for(let i = 0; i < localStorage.length; i++) { // For each key:value in localStorage
-    if(localStorage.key(i) != 'debug') { // If the localStorage key isn't equal to 'debug' (we can skip the 'debug' key)
+    // if(localStorage.key(i) != 'debug') { // If the localStorage key isn't equal to 'debug' (we can skip the 'debug' key)
+    if (localStorage.key(i).includes('-a') || localStorage.key(i).includes('-e') || localStorage.key(i).includes('-p')) {    
         var key = localStorage.key(i); // Get the key of the current loop
-        console.log('key (' + key + ')');
         var value = localStorage.getItem(key); // Get the value of the current loop
-        console.log('val (' + value + ')');
 
         document.getElementById(key).checked = (value === 'true'); // Set the proper checkbox to check/unchecked based on the true/false value in localStorage
     }

@@ -7,4 +7,4 @@
 7. [ ] Add stats on item name hover
 8. [ ] Allow notes on each checkbox
 9. [ ] Dynamically load content into each tab via a JSON file (instead of hardcoded HTML)
-10. [ ] Sticky table header
+10. [x] Sticky table header
