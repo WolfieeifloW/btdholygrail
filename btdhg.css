@@ -203,7 +203,7 @@ thead {
     background-color: grey;
     color: white;
     font-size: 16px;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: inherit;
     border: none;
     border-radius: 4px;
     cursor: pointer;
