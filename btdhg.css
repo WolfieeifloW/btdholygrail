@@ -209,6 +209,10 @@ thead {
     cursor: pointer;
 }
 
+.btd-btn:hover {
+    background-color: black;
+}
+
 .total-table.tg, .ethereal-table.tg, .perfect-table.tg {
     width: 100%;
 }
