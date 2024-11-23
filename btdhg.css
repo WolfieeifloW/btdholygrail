@@ -170,8 +170,9 @@ thead {
 .footer {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
-    /* justify-content: center; */
+    /* justify-content: space-evenly; */
+    justify-content: center;
+    gap: 3%;
     position: fixed;
     width: 100%;
     height: 5%;
@@ -254,7 +255,7 @@ thead {
 
 /* Help Icon */
 #help-icon {
-    font-size: 30px;
+    /* font-size: 30px; */
     cursor: pointer;
 }
 
