@@ -1,7 +1,13 @@
+@font-face {
+	font-family: Exocet;
+	src: url(Exocet.ttf);
+}
+
 html {
     background-color: black;
     color: white;
-    font-size: 1.75em;
+    font-size: 1.25em;
+    font-family: Exocet;
 }
 
 .container {
@@ -108,9 +114,9 @@ div#statistics {
 }
 
 table {
-    width: 95%;
+    /* width: 95%; */
     table-layout: fixed;
-    margin-top: 66px;
+    margin-top: 20px;
     /* border-collapse: collapse; */
 }
 
@@ -124,7 +130,7 @@ table tr:last-child {
 
 thead {
     position: sticky;
-    top: 67px;
+    top: 58px;
     background-color: black;
     z-index: 100;
     border-top: 2px solid white;
@@ -136,6 +142,7 @@ thead {
     /* border-collapse: collapse; */
     border-spacing: 0;
     margin: 0px auto;
+    /* width: 100%; */
 }
 
 .tg td, .tg th {
@@ -143,12 +150,15 @@ thead {
     border-style: solid;
     border-width: 1px;
     overflow: hidden;
-    padding: 10px 5px;
+    /* padding: 5px 5px; */
+    /* padding: 2px 0; */
+    padding: 3px 5px;
 }
 
 .tg .tg-0lax {
     text-align: center;
     vertical-align: center;
+    padding: 5px;
 }
 
 /* Weapons CSS */
@@ -197,4 +207,67 @@ thead {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+}
+
+.total-table.tg, .ethereal-table.tg, .perfect-table.tg {
+    width: 100%;
+}
+
+/* Mobile layout: Stack tables vertically */
+@media (max-width: 1500px) {
+    /* Ensure #statistics uses a column layout */
+    #statistics {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Make each table take full width on mobile */
+    .total-table, .ethereal-table, .perfect-table {
+        width: 100%; /* Ensure each table takes full width */
+        margin-bottom: 20px; /* Add space between tables */
+    }
+
+    /* Optional: Adjust table styling for smaller screens */
+    table {
+        width: 100%; /* Ensure table takes full width */
+        margin-top: 10px;
+    }
+
+    th {
+        padding: 5px;
+        font-size: 14px;
+    }
+
+    td {
+        padding: 5px;
+        font-size: 12px;
+    }
+}
+
+/* Desktop layout: Keep tables side by side (default) */
+@media (min-width: 769px) {
+    #statistics {
+        display: flex;
+        flex-wrap: wrap; /* Allow wrapping of tables */
+        justify-content: space-between; /* Space tables evenly */
+    }
+
+    .total-table, .ethereal-table, .perfect-table {
+        width: 30%; /* Set tables to 30% of container width */
+        margin-bottom: 20px;
+    }
+
+    /* Optional: Adjust table styling for larger screens */
+    table {
+        margin-top: 20px;
+    }
+
+    th {
+        padding: 10px;
+    }
+
+    td {
+        padding: 10px;
+    }
 }

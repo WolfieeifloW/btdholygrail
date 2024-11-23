@@ -156,6 +156,57 @@ for(let i = 0; i < localStorage.length; i++) { // For each key:value in localSto
 // -------------------------
 
 // -------------------------
+// Function to normalize the search query and row text by handling possessive 's and apostrophes
+function normalizeText(text) {
+    // Remove possessive 's (e.g., hsarus' => hsarus)
+    text = text.replace(/'s$/i, '');
+    // Remove apostrophes (e.g., Hsaruses' => Hsaruses)
+    text = text.replace(/'/g, '');
+    return text.toLowerCase().trim(); // Convert to lowercase and trim spaces
+}
+
+// Get the search box element
+const searchBox = document.getElementById('search-box');
+
+// Listen for input event on the search box
+searchBox.addEventListener('input', function() {
+    // Get the normalized search query (converted to lowercase)
+    const query = normalizeText(searchBox.value);
+
+    // Get all rows of the table
+    const rows = document.querySelectorAll('.tg tbody tr');
+
+    // Loop through each row and check if the row contains the search query
+    rows.forEach(row => {
+        // Get the text content of the row
+        let rowText = row.textContent.toLowerCase();
+
+        // Normalize the row text (optional) for matching purposes
+        rowText = normalizeText(rowText); // Remove possessives and apostrophes from row content
+
+        // Check if the query is found as a substring within the row text
+        if (rowText.includes(query)) {
+            // If a match is found, display the row
+            row.style.display = '';
+        } else {
+            // If no match, hide the row
+            row.style.display = 'none';
+        }
+    });
+});
+// -------------------------
+
+// -------------------------
+// Check if the 'Ctrl' key or 'Cmd' (on macOS) is pressed along with the 'F' key
+document.addEventListener('keydown', function(event) {
+    if ((event.ctrlKey || event.metaKey) && event.key === 'f') {
+        event.preventDefault(); // Prevent the browser's default Find functionality
+        document.getElementById('search-box').focus(); // Focus on the search box
+    }
+});
+// -------------------------
+
+// -------------------------
 // Update all categories and totals
 updateAllCategories();
 updateTotals();
