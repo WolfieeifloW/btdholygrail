@@ -143,10 +143,53 @@ document.getElementById('fileInput').addEventListener('change', function(event) 
 // -------------------------
 
 // -------------------------
+function fixWrongItemNames(oldName, newName, suffixes = ['a', 'e', 'p']) {
+    suffixes.forEach(suffix => {
+        const oldKey = `${oldName}-${suffix}`;
+        const newKey = `${newName}-${suffix}`;
+        if (oldKey in localStorage) {
+            localStorage.setItem(newKey, localStorage.getItem(oldKey));
+            localStorage.removeItem(oldKey);
+
+            const element = document.getElementById(newKey);
+            if (element) {
+                element.checked = localStorage.getItem(newKey) === 'true';
+            }
+        }
+    });
+}
+
+// Resolve incorrect item names (can remove this after a week or two)
+const itemsToFix = [
+    ['mindrend', 'skull-splitter'],
+    ['fechmars-axe', 'axe-of-fechmar'],
+    ['bonesob', 'bonesnap'],
+    ['rimeraven', 'raven-claw'],
+    ['piercerib', 'rogues-bow'],
+    ['pompes-wrath', 'pompeiis-wrath'],
+    ['pus-spiter', 'pus-spitter'],
+    ['cutthroat1', 'bartucs-cut-throat'],
+    ['fathom', 'deaths-fathom'],
+    ['ironward', 'astreons-iron-ward'],
+    ['war-bonnet', 'biggins-bonnet'],
+    ['victors-silk', 'silks-of-the-victor'],
+    ['lenyms-cord', 'lenymo'],
+    ['valkiry-wing', 'valkyrie-wing'],
+    ['gloomstrap', 'glooms-trap'],
+    ['steel-carapice', 'steel-carapace'],
+    ['verdugos-hearty-cord', 'verdungos-hearty-cord'],
+    ['wisp', 'wisp-projector'],
+    ['aldurs-gauntlet', 'aldurs-rhythm'],
+];
+
+itemsToFix.forEach(([oldName, newName]) => fixWrongItemNames(oldName, newName));
+// -------------------------
+
+// -------------------------
 // When the page loads, set all checkboxes to check or unchecked based on their localStorage value
-for(let i = 0; i < localStorage.length; i++) { // For each key:value in localStorage
+for(let i = 0; i < localStorage.length; i++) { // For each key:value in localStorage    
     // if(localStorage.key(i) != 'debug') { // If the localStorage key isn't equal to 'debug' (we can skip the 'debug' key)
-    if (localStorage.key(i).includes('-a') || localStorage.key(i).includes('-e') || localStorage.key(i).includes('-p')) {    
+    if (localStorage.key(i).includes('-a') || localStorage.key(i).includes('-e') || localStorage.key(i).includes('-p')) {
         var key = localStorage.key(i); // Get the key of the current loop
         var value = localStorage.getItem(key); // Get the value of the current loop
 
