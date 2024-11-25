@@ -180,6 +180,10 @@ const itemsToFix = [
     ['verdugos-hearty-cord', 'verdungos-hearty-cord'],
     ['wisp', 'wisp-projector'],
     ['aldurs-gauntlet', 'aldurs-rhythm'],
+    ['mcauleys-paragon', 'sanders-paragon'],
+    ['mcauleys-riprap', 'sanders-riprap'],
+    ['mcauleys-taboo', 'sanders-taboo'],
+    ['mcauleys-superstition', 'sanders-superstition'],
 ];
 
 itemsToFix.forEach(([oldName, newName]) => fixWrongItemNames(oldName, newName));
