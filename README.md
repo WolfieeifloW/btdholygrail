@@ -1,5 +1,7 @@
 # BTDiablo Holy Grail Tracker
 
+Click [HERE](https://wolfieeiflow.github.io/btdholygrail/) to load the BTDiablo Holy Grail Tracker.
+
 Looking for my PD2 filter? Check it out [HERE](https://github.com/WolfieeifloW/pd2filter)!  
 Looking for my LoD filter? Check it out [HERE](https://github.com/WolfieeifloW/lodfilter)!  
 Looking for my Last Epoch filters? Check them out [HERE](https://github.com/WolfieeifloW/lefilter)!
