@@ -184,6 +184,8 @@ const itemsToFix = [
     ['mcauleys-riprap', 'sanders-riprap'],
     ['mcauleys-taboo', 'sanders-taboo'],
     ['mcauleys-superstition', 'sanders-superstition'],
+    ['spiritual-custodian', 'dark-adherent'],
+    ['thudergods-vigor', 'thundergods-vigor']
 ];
 
 itemsToFix.forEach(([oldName, newName]) => fixWrongItemNames(oldName, newName));
